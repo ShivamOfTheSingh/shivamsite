@@ -18,6 +18,34 @@ body {
 .icon {
     border-radius: 50%;
     height: 325px;
+    transition: 200ms;
+    position: relative;
+}
+
+.icon:hover {
+    height: 350px;
+}
+
+.icon:active {
+    opacity: 50%;
+}
+
+.icon .tooltip {
+    position: absolute;
+    background-color: rgb(89, 25, 25);
+    opacity: 1;
+    color: white;
+    font-size: 10px;
+    padding: 2px 2px 2px 2px;
+    border-radius: 1px;
+    bottom: -15%;
+    right: -15%;
+    opacity: 0;
+    transition: 200ms;
+}
+
+.icon:hover .tooltip {
+    opacity: 1;
 }
 
 .title_text {
