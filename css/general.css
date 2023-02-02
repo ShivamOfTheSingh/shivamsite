@@ -1,0 +1,26 @@
+body {
+    font: 20px 'Roboto Mono', Arial;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header_nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin: 30px 30px;
+}
+
+.nav_element {
+    margin: 2px 2px 2px 2px;
+    padding: 10px;
+    transition: 100ms;
+}
+
+.nav_element:active {
+    opacity: 0.5;
+}
