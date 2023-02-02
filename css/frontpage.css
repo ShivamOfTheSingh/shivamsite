@@ -42,6 +42,7 @@ body {
     right: -15%;
     opacity: 0;
     transition: 200ms;
+    pointer-events: none;
 }
 
 .icon:hover .tooltip {
