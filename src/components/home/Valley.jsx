@@ -3,8 +3,8 @@
 // This sketch uses the "react-p5" package to become a React component
 // Original concept found here: https://www.youtube.com/watch?v=IKB1hWWedMk&t=809s
 
-import React from "react";
-import Sketch from "react-p5";
+import React from "react"
+import Sketch from "react-p5"
 
 const Valley = (props) => {
     let cols, rows, size, w, h;
