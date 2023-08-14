@@ -45,10 +45,10 @@ const Valley = (props) => {
 		}
 
 		// Stylistic changes
-		p5.background(43, 43, 43);
+		p5.background(0, 0);
 		p5.fill(43, 43, 43);
 		p5.stroke(193, 193, 156);
-		p5.translate(-w / 2, 100, -215);
+		p5.translate(-w / 2, 100, -200);
 		p5.rotateX(1.6);
 
 		// Uses a TRIANGLE_STRIP vector mesh to create the terrain
