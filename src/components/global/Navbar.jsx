@@ -5,19 +5,10 @@ import { Link } from "react-router-dom";
 const NavBar = (props) => {
   return (
 		<>
-			<p1>Hiiii</p1>
 		<nav>
-			<ul>
-				<li>
-					<Link to='/'>Home</Link>
-				</li>
-				<li>
-					<Link to='/projects'>Projects</Link>
-				</li>
-				<li>
-					<Link to='/contacts'>Contacts</Link>
-				</li>
-			</ul>
+			<Link to='/' className="navbar-element">Home</Link>
+			<Link to='/projects' className="navbar-element">Projects</Link>
+			<Link to='/contacts' className="navbar-element">Contacts</Link>
 		</nav>
 		</>
   )

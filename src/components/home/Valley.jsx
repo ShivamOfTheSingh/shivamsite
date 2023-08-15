@@ -85,7 +85,10 @@ const Valley = (props) => {
 	const valleyNoise = (p5, x, xOff, yOff) => {
 		let top = Math.abs(x - cols / 2) * h / size;
 		let ret = p5.map(p5.noise(xOff, yOff), 0, 1, -50, top);
-		ret = Math.pow(ret, 1.07);
+		ret = Math.pow(ret, 1.1);
+		if (ret >= h) {
+			ret = h
+		}
 		return ret;
 	};
 
