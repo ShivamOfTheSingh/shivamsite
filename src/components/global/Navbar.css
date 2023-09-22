@@ -1,0 +1,14 @@
+.NavBarMain {
+    padding: 1.5vh;
+    display: flex;
+    justify-content: end;
+}
+
+.navbar-element {
+    font-size: 2vh;
+    font-weight: 100;
+    text-decoration: none;
+    color: rgb(193, 193, 156);
+    margin-left: 3vh;
+    padding: 1vh;
+}

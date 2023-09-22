@@ -33,7 +33,7 @@ const Valley = (props) => {
 
 		// Creates the valley terrain noise using valleyNoise()
 		// v, xOff, and yOff are parameters responsible for generation and the rate of which the camera "moves"
-		v -= 0.053;
+		v -= 0.075;
 		let yOff = v;
 		for (let y = 0; y < rows; y++) {
 			let xOff = 0;
@@ -48,8 +48,9 @@ const Valley = (props) => {
 		p5.background(0, 0);
 		p5.fill(43, 43, 43);
 		p5.stroke(193, 193, 156);
-		p5.translate(-w / 2, 100, -200);
-		p5.rotateX(1.6);
+		p5.strokeWeight(0.5);
+		p5.translate(-w / 2, 200, -200);
+		p5.rotateX(1.7);
 
 		// Uses a TRIANGLE_STRIP vector mesh to create the terrain
 		for (let y = 0; y < rows - 1; y++) {
@@ -83,14 +84,12 @@ const Valley = (props) => {
 
 	// My take on modifying the noise() function to give the terrain generation a valley look
 	const valleyNoise = (p5, x, xOff, yOff) => {
-		let top = Math.abs(x - cols / 2) * h / size;
-		let ret = p5.map(p5.noise(xOff, yOff), 0, 1, -50, top);
-		ret = Math.pow(ret, 1.1);
-		if (ret >= h) {
-			ret = h
-		}
-		return ret;
+		const halfCols = cols / 2;
+		const hSize = h / size;
+		const ret = Math.pow(p5.map(p5.noise(xOff, yOff), 0, 1, -50, Math.abs(x - halfCols) * hSize), 1.07);
+		return ret >= h ? h : ret;
 	};
+
 
 	// The "brains" of this sketch, making it into a React component
 	return <Sketch setup={setup} draw={draw} windowResized={windowResized} />;

@@ -1,11 +1,13 @@
-import React from "react"
-import Valley from "./Valley"
-import NavBar from "../global/Navbar"
+import React from "react";
+import Valley from "./Valley";
+import "./HomePage.css";
 
 const Home = () => {
 	return (
 		<>
-		<Valley/>
+		<div className="HomePageMain">
+			<Valley />	
+		</div>
 		</>
 	)
 }
