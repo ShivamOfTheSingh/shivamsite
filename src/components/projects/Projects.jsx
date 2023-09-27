@@ -1,9 +1,11 @@
 import React from "react";
 
+import "./Projects.css";
+
 const Projects = (props) => {
 	return (
 		<>
-			<div>
+			<div className="ProjectsMain">
 				<h1>Projects</h1>
 			</div>
 		</>

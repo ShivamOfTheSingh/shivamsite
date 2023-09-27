@@ -21,7 +21,7 @@ const Valley = (props) => {
 		rows = Math.ceil(h / size);
 
 		// Creates a p5.js canvas with a parent reference to the component: Home
-		p5.createCanvas(p5.windowWidth, h, p5.WEBGL).parent(canvasParentRef);
+		p5.createCanvas(window.innerWidth, window.innerHeight, p5.WEBGL).parent(canvasParentRef);
 	};
 
 	// p5.js draw function
@@ -33,7 +33,7 @@ const Valley = (props) => {
 
 		// Creates the valley terrain noise using valleyNoise()
 		// v, xOff, and yOff are parameters responsible for generation and the rate of which the camera "moves"
-		v -= 0.075;
+		v -= 0.08;
 		let yOff = v;
 		for (let y = 0; y < rows; y++) {
 			let xOff = 0;
@@ -86,7 +86,9 @@ const Valley = (props) => {
 	const valleyNoise = (p5, x, xOff, yOff) => {
 		const halfCols = cols / 2;
 		const hSize = h / size;
-		const ret = Math.pow(p5.map(p5.noise(xOff, yOff), 0, 1, -50, Math.abs(x - halfCols) * hSize), 1.07);
+		const divisor = p5.windowWidth < 1500 ? 1000 : 900; 
+		const powerScale = p5.windowHeight / divisor;
+		const ret = Math.pow(p5.map(p5.noise(xOff, yOff), 0, 1, -50, Math.abs(x - halfCols) * hSize), powerScale);
 		return ret >= h ? h : ret;
 	};
 

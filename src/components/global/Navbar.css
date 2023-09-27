@@ -1,7 +1,9 @@
 .NavBarMain {
-    padding: 1.5vh;
+    padding: 2vh;
+    height: 5vh;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navbar-element {
@@ -9,6 +11,18 @@
     font-weight: 100;
     text-decoration: none;
     color: rgb(193, 193, 156);
-    margin-left: 3vh;
     padding: 1vh;
+    display: flex;
+    align-items: center;
+    transition: 50ms;
+    margin-left: 1.5vh;
+}
+
+.space-between-elements {
+    width: 80vw;
+}
+
+.navbar-element:hover {
+    color: rgb(43, 43, 43);
+    background-color: rgb(193, 193, 156);
 }

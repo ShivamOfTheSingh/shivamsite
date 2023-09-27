@@ -6,6 +6,9 @@ const Home = () => {
 	return (
 		<>
 		<div className="HomePageMain">
+			<div className="welcome-text">
+				Hello! My name is Shivam and this is my website.
+			</div>
 			<Valley />	
 		</div>
 		</>

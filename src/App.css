@@ -1,8 +1,8 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: rgb(43, 43, 43);
     font-family: 'Courier New', Courier, monospace;
-    font-weight: lighter;
-    color: rgb(193, 193, 156);
+    font-weight: thin;
+    color: var(--secondary-bg-color);
+    background-color: var(--main-bg-color);
 }

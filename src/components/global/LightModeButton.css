@@ -1,0 +1,31 @@
+.ButtonMain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5vh;
+    height: 5vh;
+    min-width: 5vh;
+    min-height: 5vh;
+}
+
+.lightmode-button {
+    background-color: rgb(43, 43, 43);
+    border: solid;
+    border-color: rgb(193, 193, 156);
+    border-width: 1px;
+    border-radius: 50%;
+    width: 4vh;
+    height: 4vh;
+    min-width: 4vh;
+    min-height: 4vh;
+    transition: 100ms;
+}
+
+.lightmode-button:hover {
+    background-color: rgb(193, 193, 156);
+}
+
+.lightmode-button:active {
+    background-color: rgb(193, 193, 156);
+    border-color: rgb(43, 43, 43);
+}
