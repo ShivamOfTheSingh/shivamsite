@@ -9,10 +9,11 @@ const NavBar = (props) => {
 		<>
 		<nav className="NavBarMain">
 			<LightModeButton />
-			<div className="space-between-elements" />
-			<Link to='/' className="navbar-element">Home</Link>
-			<Link to='/projects' className="navbar-element">Projects</Link>
-			<Link to='/contacts' className="navbar-element">Contacts</Link>
+			<div className="left-side">
+				<Link to='/' className="navbar-element">Home</Link>
+				<Link to='/projects' className="navbar-element">Projects</Link>
+				<Link to='/contacts' className="navbar-element">Contacts</Link>
+			</div>
 		</nav>
 		</>
   )
