@@ -5,9 +5,9 @@ import "./Contacts.css";
 const Contacts = (props) => {
 	return (
 		<>
-		<div className="ContactsMain">
-			<h1>CONTACTS</h1>
-		</div>
+			<div className="ContactsMain">
+				<h1>CONTACTS</h1>
+			</div>
 		</>
 	)
 }
