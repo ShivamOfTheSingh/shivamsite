@@ -2,7 +2,6 @@ import { useState } from "react"
 import { Routes, Route } from "react-router-dom"
 
 import "./App.css";
-import "./ThemeColors.css";
 import { Home, NavBar, Projects, Contacts } from "./components";
 
 function App() {

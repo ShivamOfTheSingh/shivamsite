@@ -8,6 +8,83 @@
 .welcome-text {
     font-size: 20px;
     position: absolute;
+    display: flex;
+    align-items: center;
     text-align: center;
-    top: 40vh;
+    height: 25px;
+    width: max-content;
+    top: 37vh;
+    cursor: default;
+    z-index: 0;
+}
+
+.welcome-text::before,
+.welcome-text::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.welcome-text::before {
+    z-index: 1;
+    background: var(--fill-color);
+    animation: typing 3.5s steps(48) 1s forwards;
+}
+
+.welcome-text::after {
+    content: '';
+    position: absolute;
+    background-color: rgb(193, 193, 156);
+    z-index: 2;
+    height: 100%;
+    width: 1.5px;
+    animation: typing 3.5s steps(48) 1s forwards, blinking 750ms steps(48) infinite;
+}
+
+.text-component {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 20px;
+    transition: 55ms;
+}
+
+.text-component a{
+    text-decoration: none;
+    color: rgb(193, 193, 156);
+}
+
+.text-component a::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    background-color: rgb(193, 193, 156);
+    transform-origin: bottom center;
+    transition: transform 70ms;
+}
+
+.text-component a:hover {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.text-component a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom center;
+}
+
+@keyframes blinking {
+    from {opacity: 0;}
+    to {opacity: 100;}
+}
+
+@keyframes typing {
+    to {left: 100%}
 }

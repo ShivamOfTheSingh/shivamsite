@@ -5,6 +5,7 @@
 
 import React from "react"
 import Sketch from "react-p5"
+import "./colors.css"
 
 const Valley = (props) => {
 	let cols, rows, size, w, h;
@@ -46,8 +47,8 @@ const Valley = (props) => {
 
 		// Stylistic changes
 		p5.background(0, 0);
-		p5.fill(43, 43, 43);
-		p5.stroke(193, 193, 156);
+		p5.fill(getComputedStyle(document.documentElement).getPropertyValue('--fill-color'));
+		p5.stroke(getComputedStyle(document.documentElement).getPropertyValue('--stroke-color'));
 		p5.strokeWeight(0.5);
 		p5.translate(-w / 2, 200, -200);
 		p5.rotateX(1.7);
