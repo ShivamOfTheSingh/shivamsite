@@ -32,7 +32,7 @@ const Flow = () => {
         p5.strokeWeight(3)
 
 
-        // Brains of the flow feild, takes the positions and modifies the particles positions given by noise
+        // Brains of the flow feild, takes the positions and modifies the particles positions given by noise.
         for (let i = 0; i < nums; i++) {
             let p = particles[i]
             p5.point(p.x, p.y)
