@@ -1,3 +1,4 @@
+// A Perlin Noise Flow Feild
 import 'react'
 import Sketch from 'react-p5'
 import "../../App.css"
@@ -10,24 +11,28 @@ const Flow = () => {
     let particles = []
 
     const setup = (p5, canvasParentRef) => {
+        // Sets initial conditions
         w = p5.windowWidth
         h = p5.windowHeight
         nums = Math.ceil((w + h) / 1.5)
         p5.frameRate(30)
         p5.createCanvas(w, h, p5.WEBGL).parent(canvasParentRef)
 
+        // Creates particle vectors
         for (let i = 0; i < nums; i++) {
             particles.push(p5.createVector(p5.random(w), p5.random(h)))
         }
     }
 
     const draw = (p5) => {
+        // Styling
         p5.background(getComputedStyle(document.documentElement).getPropertyValue('--main-bg-color'));
         p5.stroke(getComputedStyle(document.documentElement).getPropertyValue('--main-text-color'));
         p5.translate(-w / 2, -h / 2)
         p5.strokeWeight(3)
 
 
+        // Brains of the flow feild, takes the positions and modifies the particles positions given by noise
         for (let i = 0; i < nums; i++) {
             let p = particles[i]
             p5.point(p.x, p.y)
