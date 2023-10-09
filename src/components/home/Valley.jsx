@@ -22,7 +22,8 @@ const Valley = () => {
 		rows = Math.ceil(h / size);
 
 		// Creates a p5.js canvas with a parent reference to the component: Home
-		p5.frameRate(60)
+		p5.noiseDetail(32, 0.55)
+		p5.frameRate(30)
 		p5.createCanvas(window.innerWidth, window.innerHeight, p5.WEBGL).parent(canvasParentRef);
 	};
 
@@ -35,15 +36,15 @@ const Valley = () => {
 
 		// Creates the valley terrain noise using valleyNoise()
 		// v, xOff, and yOff are parameters responsible for generation and the rate of which the camera "moves"
-		v -= 0.3;
+		v -= 0.1;
 		let yOff = v;
 		for (let y = 0; y < rows; y++) {
 			let xOff = 0;
 			for (let x = 0; x < cols; x++) {
-				terrain[x][y] = valleyNoise(p5, x, xOff, yOff);
+				terrain[x][y] = valleyNoise(p5, x, xOff, yOff * 5);
 				xOff += 0.2;
 			}
-			yOff += 0.3;
+			yOff += 0.1;
 		}
 
 		// Stylistic changes
@@ -51,8 +52,8 @@ const Valley = () => {
 		p5.fill(getComputedStyle(document.documentElement).getPropertyValue('--main-bg-color'));
 		p5.stroke(getComputedStyle(document.documentElement).getPropertyValue('--main-text-color'));
 		p5.strokeWeight(0.5);
-		p5.translate(-w / 2, 200, -200);
-		p5.rotateX(1.71);
+		p5.translate(-w / 2, 150, -225);
+		p5.rotateX(1.6);
 
 		// Uses a TRIANGLE_STRIP vector mesh to create the terrain
 		for (let y = 0; y < rows - 1; y++) {
@@ -88,7 +89,7 @@ const Valley = () => {
 	const valleyNoise = (p5, x, xOff, yOff) => {
 		const halfCols = cols / 2;
 		const top = Math.abs(x - halfCols) / cols * h;
-		const ret = Math.pow(p5.map(p5.noise(xOff, yOff), 0, 1, -50, top), 1.15);
+		const ret = Math.pow(p5.map(p5.noise(xOff, yOff), 0, 1, -50, top), 1.1);
 		return ret;
 	};
 
