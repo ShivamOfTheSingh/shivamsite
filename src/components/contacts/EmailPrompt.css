@@ -1,6 +1,6 @@
 .EmailMain {
     background-color: var(--main-bg-color);
-    border: 1px var(--main-text-color) solid;
+    border: 1px solid var(--main-text-color);
     position: absolute;
     top: 25%;
     left: 10%;
@@ -12,41 +12,59 @@
     animation: fadeIn 0.35s ease-in-out;
 }
 
-.EmailMain p {
+.Title {
     font-size: 2vh;
     margin-bottom: 2vh;
     cursor: default;
 }
 
-.EmailMain input {
-    border: solid 1px;
+.InputField {
+    position: relative;
+    margin-bottom: 1.5vh;
+}
+
+.InputField input,
+.InputField textarea {
+    border: solid 1px var(--main-text-color);
     background-color: var(--main-bg-color);
-    border-color: var(--main-text-color);
-    margin-bottom: 2vh;
     font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5vh;
     padding: 7px;
     color: var(--main-text-color);
+    outline: none;
 }
 
 .MailContents {
-    height: 50vh;
+    height: 35vh;
+    width: 27.5vw;
+    resize: none;
 }
 
-.ReturnEmail, .Subject {
-    height: 2.5vh;
+.ReturnEmail,
+.Subject {
+    height: 2vh;
+    width: 27.5vw;
+}
+
+.InputForm {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .EmailMain:hover {
     border-color: var(--bright-text-color);
 }
 
-.EmailMain input:hover {
+.InputField input:hover {
     border-color: var(--bright-text-color);
     background-color: var(--dim-bg-color);
 }
 
-.EmailMain input:focus {
-    outline: none;
+.InputField input::placeholder,
+.InputField textarea::placeholder {
+    color: var(--dim-text-color);
+    font-size: 1.5vh;
 }
 
 @keyframes fadeIn {
