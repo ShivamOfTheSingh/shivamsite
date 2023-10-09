@@ -23,7 +23,7 @@ const Valley = () => {
 
 		// Creates a p5.js canvas with a parent reference to the component: Home
 		p5.noiseDetail(32, 0.55)
-		p5.frameRate(30)
+		p5.frameRate(20)
 		p5.createCanvas(window.innerWidth, window.innerHeight, p5.WEBGL).parent(canvasParentRef);
 	};
 

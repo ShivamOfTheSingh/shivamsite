@@ -25,7 +25,7 @@ const Flow = () => {
         p5.background(getComputedStyle(document.documentElement).getPropertyValue('--main-bg-color'));
         p5.stroke(getComputedStyle(document.documentElement).getPropertyValue('--main-text-color'));
         p5.translate(-w / 2, -h / 2)
-        p5.strokeWeight(4)
+        p5.strokeWeight(3)
 
 
         for (let i = 0; i < nums; i++) {
