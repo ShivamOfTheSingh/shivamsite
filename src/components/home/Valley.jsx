@@ -35,7 +35,7 @@ const Valley = () => {
 
 		// Creates the valley terrain noise using valleyNoise()
 		// v, xOff, and yOff are parameters responsible for generation and the rate of which the camera "moves"
-		v -= 0.2;
+		v -= 0.3;
 		let yOff = v;
 		for (let y = 0; y < rows; y++) {
 			let xOff = 0;
@@ -43,7 +43,7 @@ const Valley = () => {
 				terrain[x][y] = valleyNoise(p5, x, xOff, yOff);
 				xOff += 0.2;
 			}
-			yOff += 0.2;
+			yOff += 0.3;
 		}
 
 		// Stylistic changes
