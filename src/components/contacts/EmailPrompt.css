@@ -1,0 +1,49 @@
+.EmailMain {
+    background-color: var(--main-bg-color);
+    border: 1px var(--main-text-color) solid;
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    height: 55vh;
+    width: 28.5vw;
+    display: flex;
+    flex-direction: column;
+    padding: 0vh 1.25vh 0vh 1.25vh;
+}
+
+.EmailMain p {
+    font-size: 2vh;
+    margin-bottom: 2vh;
+    cursor: default;
+}
+
+.EmailMain input {
+    border: solid 1px;
+    background-color: var(--main-bg-color);
+    border-color: var(--main-text-color);
+    margin-bottom: 2vh;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 7px;
+    color: var(--main-text-color);
+}
+
+.MailContents {
+    height: 50vh;
+}
+
+.ReturnEmail, .Subject {
+    height: 2.5vh;
+}
+
+.EmailMain:hover {
+    border-color: var(--bright-text-color);
+}
+
+.EmailMain input:hover {
+    border-color: var(--bright-text-color);
+    background-color: var(--dim-bg-color);
+}
+
+.EmailMain input:focus {
+    outline: none;
+}

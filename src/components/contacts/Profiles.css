@@ -1,0 +1,10 @@
+.ProfileMain {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 25%;
+    left: 45%;
+    height: 55%;
+    width: 45%;
+}

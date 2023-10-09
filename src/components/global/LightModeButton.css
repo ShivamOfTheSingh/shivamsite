@@ -11,23 +11,23 @@
 }
 
 .lightmode-button {
-    background-color: rgb(43, 43, 43);
+    background-color: var(--main-bg-color);
     border: solid;
-    border-color: rgb(193, 193, 156);
+    border-color: var(--main-text-color);
     border-width: 1px;
     border-radius: 50%;
     width: 4vh;
     height: 4vh;
     min-width: 4vh;
     min-height: 4vh;
-    transition: 100ms;
+    transition: var(--transition-time);
 }
 
 .lightmode-button:hover {
-    background-color: rgb(193, 193, 156);
+    background-color: var(--main-text-color);
 }
 
 .lightmode-button:active {
-    background-color: rgb(193, 193, 156);
-    border-color: rgb(43, 43, 43);
+    background-color: var(--main-text-color);
+    border-color: var(--main-bg-color);
 }

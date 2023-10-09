@@ -1,6 +1,10 @@
 :root {
     --main-bg-color: rgb(43, 43, 43);
-    --secondary-bg-color: rgb(193, 193, 156);
+    --dim-bg-color: rgb(38, 37, 37);
+    --main-text-color: rgb(193, 193, 156);
+    --dim-text-color: rgb(130, 130, 90);
+    --bright-text-color: rgb(237, 237, 192);
+    --transition-time: 110ms;
 }
 
 body {
@@ -8,6 +12,7 @@ body {
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
     font-weight: thin;
-    color: var(--secondary-bg-color);
+    color: var(--main-text-color);
     background-color: var(--main-bg-color);
+    overflow: hidden;
 }

@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    max-height: 100vh;
 }
 
 .welcome-text {
@@ -30,14 +30,14 @@
 
 .welcome-text::before {
     z-index: 1;
-    background: var(--fill-color);
+    background: var(--main-bg-color);
     animation: typing 3.5s steps(48) 1s forwards;
 }
 
 .welcome-text::after {
     content: '';
     position: absolute;
-    background-color: rgb(193, 193, 156);
+    background-color: var(--main-text-color);
     z-index: 2;
     height: 100%;
     width: 1.5px;
@@ -50,12 +50,12 @@
     justify-content: center;
     position: relative;
     height: 20px;
-    transition: 55ms;
+    transition: 300ms;
 }
 
 .text-component a{
     text-decoration: none;
-    color: rgb(193, 193, 156);
+    color: var(--dim-text-color);
 }
 
 .text-component a::after{
@@ -65,24 +65,26 @@
     transform: scaleX(0);
     height: 2px;
     bottom: 0;
-    background-color: rgb(193, 193, 156);
+    background-color: var(--dim-text-color);
     transform-origin: bottom center;
-    transition: transform 70ms;
+    transition: transform 300ms;
 }
 
 .text-component a:hover {
-    font-weight: bold;
+    color: var(--main-text-color);
+    font-weight: 700;
     font-size: 22px;
 }
 
 .text-component a:hover::after {
     transform: scaleX(1);
     transform-origin: bottom center;
+    background-color: var(--main-text-color);
 }
 
 @keyframes blinking {
-    from {opacity: 0;}
-    to {opacity: 100;}
+    from {opacity: 100;}
+    to {opacity: 0;}
 }
 
 @keyframes typing {

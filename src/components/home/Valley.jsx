@@ -5,9 +5,9 @@
 
 import React from "react"
 import Sketch from "react-p5"
-import "./colors.css"
+import "../../App.css"
 
-const Valley = (props) => {
+const Valley = () => {
 	let cols, rows, size, w, h;
 	let v = 0;
 	let terrain = [];
@@ -22,6 +22,7 @@ const Valley = (props) => {
 		rows = Math.ceil(h / size);
 
 		// Creates a p5.js canvas with a parent reference to the component: Home
+		p5.frameRate(60)
 		p5.createCanvas(window.innerWidth, window.innerHeight, p5.WEBGL).parent(canvasParentRef);
 	};
 
@@ -34,7 +35,7 @@ const Valley = (props) => {
 
 		// Creates the valley terrain noise using valleyNoise()
 		// v, xOff, and yOff are parameters responsible for generation and the rate of which the camera "moves"
-		v -= 0.08;
+		v -= 0.2;
 		let yOff = v;
 		for (let y = 0; y < rows; y++) {
 			let xOff = 0;
@@ -42,16 +43,16 @@ const Valley = (props) => {
 				terrain[x][y] = valleyNoise(p5, x, xOff, yOff);
 				xOff += 0.2;
 			}
-			yOff += 0.17;
+			yOff += 0.2;
 		}
 
 		// Stylistic changes
 		p5.background(0, 0);
-		p5.fill(getComputedStyle(document.documentElement).getPropertyValue('--fill-color'));
-		p5.stroke(getComputedStyle(document.documentElement).getPropertyValue('--stroke-color'));
+		p5.fill(getComputedStyle(document.documentElement).getPropertyValue('--main-bg-color'));
+		p5.stroke(getComputedStyle(document.documentElement).getPropertyValue('--main-text-color'));
 		p5.strokeWeight(0.5);
 		p5.translate(-w / 2, 200, -200);
-		p5.rotateX(1.7);
+		p5.rotateX(1.71);
 
 		// Uses a TRIANGLE_STRIP vector mesh to create the terrain
 		for (let y = 0; y < rows - 1; y++) {
@@ -86,13 +87,10 @@ const Valley = (props) => {
 	// My take on modifying the noise() function to give the terrain generation a valley look
 	const valleyNoise = (p5, x, xOff, yOff) => {
 		const halfCols = cols / 2;
-		const hSize = h / size;
-		const divisor = p5.windowWidth < 1500 ? 1000 : 900; 
-		const powerScale = p5.windowHeight / divisor;
-		const ret = Math.pow(p5.map(p5.noise(xOff, yOff), 0, 1, -50, Math.abs(x - halfCols) * hSize), powerScale);
-		return ret >= h ? h : ret;
+		const top = Math.abs(x - halfCols) / cols * h;
+		const ret = Math.pow(p5.map(p5.noise(xOff, yOff), 0, 1, -50, top), 1.15);
+		return ret;
 	};
-
 
 	// The "brains" of this sketch, making it into a React component
 	return <Sketch setup={setup} draw={draw} windowResized={windowResized} />;
