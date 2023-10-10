@@ -14,7 +14,7 @@ const Flow = () => {
         // Sets initial conditions
         w = p5.windowWidth
         h = p5.windowHeight
-        nums = Math.ceil((w + h) / 1.5)
+        nums = 2000
         p5.frameRate(30)
         p5.createCanvas(w, h, p5.WEBGL).parent(canvasParentRef)
 
@@ -29,7 +29,7 @@ const Flow = () => {
         p5.background(getComputedStyle(document.documentElement).getPropertyValue('--main-bg-color'));
         p5.stroke(getComputedStyle(document.documentElement).getPropertyValue('--main-text-color'));
         p5.translate(-w / 2, -h / 2)
-        p5.strokeWeight(3)
+        p5.strokeWeight(3.5)
 
 
         // Brains of the flow feild, takes the positions and modifies the particles positions given by noise.
@@ -56,12 +56,11 @@ const Flow = () => {
     const windowResized = (p5) => {
         w = p5.windowWidth;
         h = p5.windowHeight;
-        nums = Math.ceil((w + h) / 1.5)
         p5.resizeCanvas(w, h);
     };
 
     return (
-        <Sketch setup={setup} draw={draw} windowResized={windowResized}/>
+        <Sketch setup={setup} draw={draw} windowResized={windowResized} />
     )
 }
 
