@@ -8,15 +8,12 @@ const AboutMe = (props) => {
                 <div className='TextContainer'>
                   <h1>I am Shivam Singh,</h1>
                   <div className='Facts'>
-                      <p>And I am a student at California Polytechnic University, Pomona.</p>
-                      <p>And I am pursuing computer science, with a special interest in machine learning
-                          and cloud computing.</p>
-                      <p> And I am a dog owner</p>
-                      <p>And I am proficent in Java, Python, C/C++, JavaScript, and HTML/CSS</p>
-                      <p>And I am experienced in TensorFlow/Keras, NumPy, AWS, Google Cloud Services,
-                          and React</p>
-                      <p>And I am a passionate home cook and an enjoyer of physical activity</p>
-                      <p>And, most of all, I am a nerd by heart</p>
+                    <p>And I am a student at California Polytechnic University, Pomona, pursuing a degree in Computer Science.</p>
+                    <p>And I am a dog owner</p>
+                    <p>And I am passionate about data science, machine learning, and cloud computing, and I'm actively seeking an internship in these fields.</p>
+                    <p>And I am a passionate home cook and an enjoyer of physical activity</p>
+                    <p>And I am proficient in Python, C/C++, Java, JavaScript, and more. Experienced with AWS, Google Cloud, Keras/TensorFlow, and more.</p>
+                    <p>And I am proudly a nerd</p>
                   </div>
                 </div>
                 <div className='Model'>

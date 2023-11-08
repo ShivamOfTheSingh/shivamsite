@@ -71,7 +71,7 @@
 }
 
 .text-component a:hover {
-    color: var(--main-text-color);
+    color: var(--dim-text-color);
     font-weight: 700;
     font-size: 22px;
 }
@@ -79,7 +79,7 @@
 .text-component a:hover::after {
     transform: scaleX(1);
     transform-origin: bottom center;
-    background-color: var(--main-text-color);
+    background-color: var(--dim-text-color);
 }
 
 @keyframes fadeIn {

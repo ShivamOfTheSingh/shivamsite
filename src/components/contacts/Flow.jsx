@@ -41,8 +41,8 @@ const Flow = () => {
             p.x += Math.cos(angle) * speed
             p.y += Math.sin(angle) * speed
             if (!onScreen(p)) {
-                p.x = p5.random(w)
-                p.y = p5.random(h)
+                p.x = p5.random(p5.windowWidth)
+                p.y = p5.random(p5.windowHeight)
             }
         }
 
