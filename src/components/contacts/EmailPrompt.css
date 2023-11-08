@@ -56,7 +56,8 @@
     border-color: var(--bright-text-color);
 }
 
-.InputField input:hover {
+.InputField input:hover,
+.InputField textarea:hover {
     border-color: var(--bright-text-color);
     background-color: var(--dim-bg-color);
 }

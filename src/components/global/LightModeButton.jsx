@@ -2,11 +2,11 @@ import React from 'react';
 
 import './LightModeButton.css';
 
-const LightModeButton = () => {
+const LightModeButton = ({ toggleTheme }) => {
   return (
     <>
       <div className='ButtonMain'>
-        <button className='lightmode-button'></button>
+        <button className='lightmode-button' onClick={ toggleTheme }></button>
       </div>
     </>
   )

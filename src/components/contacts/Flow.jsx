@@ -1,6 +1,6 @@
 // A Perlin Noise Flow Feild
 import 'react'
-import Sketch from 'react-p5'
+import { ReactP5Wrapper } from "@p5-wrapper/react";
 import "../../App.css"
 
 const Flow = () => {
@@ -60,7 +60,12 @@ const Flow = () => {
     };
 
     return (
-        <Sketch setup={setup} draw={draw} windowResized={windowResized} />
+        <ReactP5Wrapper sketch={p => {
+            p.setup = () => setup(p);
+            p.draw = () => draw(p);
+            p.windowResized = () => windowResized(p);
+        }}
+        />
     )
 }
 
