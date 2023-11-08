@@ -6,8 +6,8 @@ import "../../App.css"
 const Flow = () => {
     let w, h, nums;
     let zOff = 0;
-    let scl = 0.001;
-    let speed = 12;
+    let scl = 0.0005;
+    let speed = 10;
     let particles = []
 
     const setup = (p5, canvasParentRef) => {
@@ -36,7 +36,7 @@ const Flow = () => {
         for (let i = 0; i < nums; i++) {
             let p = particles[i]
             p5.point(p.x, p.y)
-            let n = p5.noise(p.x * scl, p.y * scl, zOff * 3);
+            let n = p5.noise(p.x * scl, p.y * scl, zOff);
             let angle = p5.TWO_PI * n
             p.x += Math.cos(angle) * speed
             p.y += Math.sin(angle) * speed
