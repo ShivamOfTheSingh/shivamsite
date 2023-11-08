@@ -7,8 +7,9 @@ const Flow = () => {
     let w, h, nums;
     let zOff = 0;
     let scl = 0.0005;
-    let speed = 10;
-    let particles = []
+    let speed = 11;
+    let particles = [];
+    let cursor;
 
     const setup = (p5, canvasParentRef) => {
         // Sets initial conditions
@@ -22,6 +23,8 @@ const Flow = () => {
         for (let i = 0; i < nums; i++) {
             particles.push(p5.createVector(p5.random(w), p5.random(h)))
         }
+
+        cursor = p5.createVector(p5.mouseX, p5.mouseY);
     }
 
     const draw = (p5) => {
@@ -30,16 +33,24 @@ const Flow = () => {
         p5.stroke(getComputedStyle(document.documentElement).getPropertyValue('--main-text-color'));
         p5.translate(-w / 2, -h / 2)
         p5.strokeWeight(3.5)
-
+        cursor.set(p5.mouseX, p5.mouseY);
 
         // Brains of the flow feild, takes the positions and modifies the particles positions given by noise.
         for (let i = 0; i < nums; i++) {
             let p = particles[i]
             p5.point(p.x, p.y)
-            let n = p5.noise(p.x * scl, p.y * scl, zOff);
+            let n = p5.noise(p.x * scl, p.y * scl, zOff * 1.5);
             let angle = p5.TWO_PI * n
             p.x += Math.cos(angle) * speed
             p.y += Math.sin(angle) * speed
+
+            let dir = p5.createVector(p.x, p.y);
+            dir.sub(cursor);
+            dir.normalize();
+            let repulsion = 6;
+            dir.mult(repulsion);
+            p.add(dir);
+
             if (!onScreen(p)) {
                 p.x = p5.random(p5.windowWidth)
                 p.y = p5.random(p5.windowHeight)

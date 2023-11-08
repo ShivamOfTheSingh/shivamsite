@@ -6,7 +6,6 @@ const Projects = (props) => {
 	return (
 		<>
 			<div className="ProjectsMain">
-				<h1>Projects</h1>
 			</div>
 		</>
 	)

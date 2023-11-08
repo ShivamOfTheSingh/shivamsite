@@ -2,7 +2,7 @@
     --main-bg-color: rgb(43, 43, 43);
     --dim-bg-color: rgb(38, 37, 37);
     --bright-bg-color: rgb(110, 109, 109);
-    --main-text-color: rgb(209, 209, 170);
+    --main-text-color: rgb(193, 193, 156);
     --dim-text-color: rgb(152, 152, 104);
     --bright-text-color: rgb(237, 237, 192);
     --transition-time: 110ms;
@@ -25,7 +25,7 @@ body {
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: -1var(--main-text-color);
+    background-color: var(--main-bg-color);
     opacity: 0;
     z-index: -1;
 
@@ -44,5 +44,5 @@ body {
 }
 
 .animate-cover {
-    animation: cover 0.1s;
+    animation: cover 0.5s;
 }
