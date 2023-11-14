@@ -1,4 +1,5 @@
 .AboutMain {
+    font-weight: 100;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -27,6 +28,7 @@
 .Facts p {
     font-size: 2vh;
     margin: 0;
+    transition: var(--transition-time);
 }
 
 .TextContainer h1 {
@@ -44,6 +46,40 @@
     cursor: default;
 }
 
+.Facts p:hover {
+    color: var(--bright-text-color);
+}
+
+.modelCover {
+    position: absolute;
+    position: absolute;
+    padding: 0px;
+    right: 10%;
+    height: 55vh;
+    width: 35vw;
+    background-color: var(--main-bg-color);
+    opacity: 0;
+    z-index: -1;
+
+}
+
+@keyframes coverModel {
+    0% {
+        opacity: 0;
+        z-index: 101;
+    }
+
+    50% {
+        opacity: 1;
+        z-index: 101;
+    }
+
+    100% {
+        opacity: 0;
+        z-index: -1;
+    }
+}
+
 @keyframes fadeinup {
     0% {
             opacity: 0;
@@ -54,4 +90,8 @@
             opacity: 1;
             transform: scale(1);
         }
+}
+
+.animate-model {
+    animation: coverModel 0.75s;
 }

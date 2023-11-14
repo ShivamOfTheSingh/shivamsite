@@ -6,7 +6,7 @@ const Flow = () => {
     let w, h, nums;
     let zOff = 0;
     let scl = 0.0005;
-    let speed = 10;
+    let speed = 5;
     let particles = [];
     let cursor;
 
@@ -14,7 +14,7 @@ const Flow = () => {
         w = p5.windowWidth;
         h = p5.windowHeight;
         nums = 2000;
-        p5.frameRate(30);
+        p5.frameRate(60);
         p5.createCanvas(w, h, p5.WEBGL).parent(canvasParentRef);
 
         for (let i = 0; i < nums; i++) {
@@ -28,7 +28,7 @@ const Flow = () => {
         p5.background(getComputedStyle(document.documentElement).getPropertyValue('--main-bg-color'));
         p5.stroke(getComputedStyle(document.documentElement).getPropertyValue('--main-text-color'));
         p5.translate(-w / 2, -h / 2);
-        p5.strokeWeight(3.5);
+        p5.strokeWeight(3);
         cursor.set(p5.mouseX, p5.mouseY);
 
         for (let i = 0; i < nums; i++) {

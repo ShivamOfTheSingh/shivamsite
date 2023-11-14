@@ -72,7 +72,6 @@
 
 .text-component a:hover {
     color: var(--dim-text-color);
-    font-weight: 700;
     font-size: 22px;
 }
 

@@ -1,0 +1,14 @@
+.ModelMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    padding: 0px;
+    right: 10%;
+    height: 55vh;
+    width: 35vw;
+}
+
+.Model {
+}
