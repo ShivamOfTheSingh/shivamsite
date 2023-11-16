@@ -39,12 +39,12 @@ const Flow = () => {
                 let dir = p5.createVector(p.x, p.y);
                 dir.sub(cursor);
                 dir.normalize();
-                let repulsion = 7;
+                let repulsion = 3;
                 dir.mult(repulsion);
                 p.add(dir);
             }
 
-            let n = p5.noise(p.x * scl, p.y * scl, zOff * 3);
+            let n = p5.noise(p.x * scl, p.y * scl, zOff);
             let angle = p5.TWO_PI * n;
             p.x += Math.cos(angle) * speed;
             p.y += Math.sin(angle) * speed;

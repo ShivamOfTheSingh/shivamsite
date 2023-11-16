@@ -3,7 +3,7 @@ import "./AboutMe.css"
 import Model from './Model'
 
 const AboutMe = (props) => {
-  const [currInfo, setInfo] = useState("default");
+  const [currInfo, setInfo] = useState("Click any one of these facts!");
 
   const changeModel = (newInfo) => {
       if (newInfo != currInfo) {
@@ -14,8 +14,8 @@ const AboutMe = (props) => {
           });
 
           setTimeout(() => { setInfo(newInfo) }, 375)
-      }
-  }
+        }
+    }
 
   return (
         <>
