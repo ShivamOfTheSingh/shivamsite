@@ -6,14 +6,14 @@ const Flow = () => {
     let w, h, nums;
     let zOff = 0;
     let scl = 0.0005;
-    let speed = 5;
+    let speed = 2.5;
     let particles = [];
     let cursor;
 
     const setup = (p5, canvasParentRef) => {
         w = p5.windowWidth;
         h = p5.windowHeight;
-        nums = 2000;
+        nums = 1500;
         p5.frameRate(60);
         p5.createCanvas(w, h, p5.WEBGL).parent(canvasParentRef);
 
