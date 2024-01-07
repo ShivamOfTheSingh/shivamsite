@@ -16,6 +16,7 @@
     width: 35vw;
     display: flex;
     flex-direction: column;
+    user-select: none;
 }
 
 .Facts {

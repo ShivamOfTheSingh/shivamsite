@@ -6,7 +6,7 @@ export function Dumbell(props) {
   return (
     <group {...props} dispose={null}>
       <group scale={0.01}>
-        <group position={[100, 80, 100]} scale={27.534}>
+        <group position={[100, 80, 100]} scale={15}>
           <mesh geometry={nodes.dumbell_dumbell_rod_0.geometry} material={materials.dumbell_rod} />
           <mesh geometry={nodes.dumbell_dumbell_0.geometry} material={materials.dumbell} />
         </group>
