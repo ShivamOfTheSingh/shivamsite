@@ -4,21 +4,14 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    padding: 0px;
-    height: 100vh;
-    width: 100vw;
+    right: 2.5vw;
     overflow: hidden;
-}
-
-.Model {
-    font-size: 1.5vw;
-    position: absolute;
 }
 
 .canvas-container {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 50vw;
+    height: 70vh;
 }
 
 .canvas {
