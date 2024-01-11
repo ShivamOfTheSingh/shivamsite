@@ -6,11 +6,16 @@ import { Dumbell } from './Models/Dumbell';
 import { Nerd } from './Models/Nerd';
 import { Cloud } from './Models/Cloud';
 import { Python } from './Models/Python';
+import { Samosa } from './Models/Samosa';
+import { Bridge } from './Models/Bridge';
 
 const Model = ({ modelName }) => {
   let currModel;
 
   switch (modelName) {
+    case 2.5:
+      currModel = <Bridge />
+      break;
     case 3:
       currModel = <Cloud />
       break;
@@ -19,6 +24,9 @@ const Model = ({ modelName }) => {
       break;
     case 5:
       currModel = <Python />;
+      break;
+    case 5.5:
+      currModel = <Samosa />
       break;
     case 6:
       currModel = <Nerd />;
@@ -33,13 +41,6 @@ const Model = ({ modelName }) => {
         <Canvas className='canvas' size={[1200, 1200]}>
           <OrbitControls />
           <ambientLight intensity={1} />
-
-          {/* Add a point at (0, 0, 0) */}
-          <mesh position={[0, 0, 0]}>
-            <sphereGeometry args={[0.1, 32, 32]} />
-            <meshStandardMaterial color='red' />
-          </mesh>
-
           {currModel}
         </Canvas>
       </div>

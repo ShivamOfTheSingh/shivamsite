@@ -43,7 +43,8 @@
 }
 
 .Facts,
-.TextContainer h1{
+.TextContainer h1,
+.TextContainer {
     animation: fadeinup 1.25s;
 }
 
@@ -56,7 +57,8 @@
     color: var(--bright-text-color);
 }
 
-.modelCover {
+.modelCover,
+.tempLoader {
     position: absolute;
     position: absolute;
     padding: 0px;
@@ -66,7 +68,10 @@
     background-color: var(--main-bg-color);
     opacity: 0;
     z-index: -1;
+}
 
+.tempLoader {
+    animation: loadModel 1.5s;
 }
 
 @keyframes coverModel {
@@ -75,7 +80,7 @@
         z-index: 40;
     }
 
-    50% {
+    35%, 65% {
         opacity: 1;
         z-index: 40;
     }
@@ -84,6 +89,19 @@
         opacity: 0;
         z-index: -1;
     }
+}
+
+@keyframes loadModel {
+    0% {
+        opacity: 1;
+        z-index: 40;
+    }
+
+    100% {
+        opacity: 0;
+        z-index: 0;
+    }
+    
 }
 
 @keyframes fadeinup {
