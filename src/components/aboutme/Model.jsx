@@ -1,18 +1,24 @@
-import React, { useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
-import './Model.css';
 import { OrbitControls } from '@react-three/drei';
+import './Model.css';
+
 import { Dumbell } from './Models/Dumbell';
 import { Nerd } from './Models/Nerd';
 import { Cloud } from './Models/Cloud';
 import { Python } from './Models/Python';
 import { Samosa } from './Models/Samosa';
 import { Bridge } from './Models/Bridge';
+import { Bronco } from './Models/Bronco';
+import { LightText } from './Models/Light-text';
+import { DarkText } from './Models/Dark-text';
 
-const Model = ({ modelName }) => {
+const Model = ({ modelName, theme }) => {
   let currModel;
 
   switch (modelName) {
+    case 1:
+      currModel = <Bronco />
+      break;
     case 2.5:
       currModel = <Bridge />
       break;
@@ -32,7 +38,7 @@ const Model = ({ modelName }) => {
       currModel = <Nerd />;
       break;
     default:
-      currModel = <Python />;
+      currModel = theme === 'dark' ? <LightText /> : <DarkText />
   }
 
   return (

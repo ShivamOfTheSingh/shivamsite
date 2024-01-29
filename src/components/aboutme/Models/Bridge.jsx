@@ -13,7 +13,7 @@ export function Bridge(props) {
 
   let pos = [0, -0.75, -5]
   return (
-    <group {...props} dispose={null} scale={0.23} position={[0, -0.1, -0.43]} ref={myModel}>
+    <group {...props} dispose={null} scale={0.27} position={[0, -0.1, -0.43]} ref={myModel}>
       <mesh geometry={nodes.cube.geometry} material={materials.Mat_1} position={pos}/>
       <mesh geometry={nodes.cube_1.geometry} material={materials.Mat_2} position={pos} />
       <mesh geometry={nodes.cube_2.geometry} material={materials.Mat_3} position={pos} />

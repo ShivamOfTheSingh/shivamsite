@@ -2,7 +2,7 @@ import { useState, React } from 'react'
 import "./AboutMe.css"
 import Model from './Model'
 
-const AboutMe = (props) => {
+const AboutMe = ({ theme }) => {
   const [currInfo, setInfo] = useState("Click any one of these facts!");
 
   const changeModel = (newInfo) => {
@@ -30,12 +30,12 @@ const AboutMe = (props) => {
                       <p onClick={() => changeModel(4)}>And I am a cooking enthusiast and an enjoyer of physical activity.</p>
                       <p onClick={() => changeModel(5)}>And I am proficient in Python, C/C++, Java, JavaScript, and more. Experienced with AWS, Google Cloud, Keras/TensorFlow, and more.</p>
                       <p onClick={() => changeModel(5.5)}>And I am a lover of samosas.</p>
-                      <p onClick={() => changeModel(6)}>And, most of all, I am a nerd.</p>
+                      <p onClick={() => changeModel(6)}>Hope you like my website!</p>
                   </div>
                 </div>
               <div className='modelCover' />
               <div className='tempLoader' />
-                <Model className="Model" modelName={currInfo} />
+                <Model className="Model" modelName={currInfo} theme={theme}/>
             </div>
         </>
     )

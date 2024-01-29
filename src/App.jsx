@@ -51,7 +51,7 @@ function App() {
 				<Route path='/' element={<Home />} />
 				<Route path='/projects' element={<Projects />} />
 				<Route path='/contacts' element={<Contacts />} />
-				<Route path='/me' element={<AboutMe />} />
+				<Route path='/me' element={<AboutMe theme={theme}/>} />
 			</Routes>
 		</main>
 		<div className="transitioner"></div>
