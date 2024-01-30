@@ -68,6 +68,34 @@
     font-size: 1.5vh;
 }
 
+.SendButton {
+    position: absolute;
+    border: 1px var(--main-bg-color) solid;
+    background-color: var(--main-text-color);
+    color: var(--main-bg-color);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: thin;
+    font-size: 20px;
+    margin: 0;
+    padding: 0.75vh 1vh;
+    top: 1.25vh;
+    right: 1.5vh;
+    animation: fadeIn 500ms;
+    transition: var(--transition-time);
+}
+
+.SendButton:hover {
+    background-color: var(--main-bg-color);
+    border: solid 1px var(--main-text-color);
+    color: var(--main-text-color);
+}
+
+.SendButton:active {
+    transform: scale(0.95);
+    color: var(--main-bg-color);
+    background-color: var(--main-text-color);
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
