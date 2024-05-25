@@ -13,7 +13,7 @@ const Flow = () => {
     const setup = (p5, canvasParentRef) => {
         w = p5.windowWidth;
         h = p5.windowHeight;
-        nums = 1500;
+        nums = 1250;
         p5.frameRate(60);
         p5.createCanvas(w, h, p5.WEBGL).parent(canvasParentRef);
 

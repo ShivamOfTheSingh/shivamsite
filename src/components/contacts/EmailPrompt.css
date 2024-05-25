@@ -79,7 +79,7 @@
     margin: 0;
     padding: 0.75vh 1vh;
     top: 1.25vh;
-    right: 1.5vh;
+    right: 0.75vw;
     animation: fadeIn 500ms;
     transition: var(--transition-time);
 }
@@ -94,6 +94,7 @@
     transform: scale(0.95);
     color: var(--main-bg-color);
     background-color: var(--main-text-color);
+    transition: var(--transition-time);
 }
 
 @keyframes fadeIn {
