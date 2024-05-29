@@ -1,3 +1,40 @@
-.ProjectsMain {
-    height: 10000px;
+.gitprofile {
+    justify-content: space-between;
+    align-items: center;
+    padding: 3vh;
+    display: flex;
+    flex-direction: column;
+    height: 44vh;
+    width: 24vw;
+    background-color: var(--dim-bg-color);
+    border: solid 2px var(--main-text-color);
+}
+
+.gitprofile:hover {
+    background-color: var(--bright-bg-color);
+    border: dashed 2px var(--bright-text-color);
+}
+
+.pfp {
+    height: 15vh;
+    width: 15vh;
+    margin-top: 1.5vh;
+    border-radius: 7.5vh;
+    border: solid 2px var(--bright-text-color);
+}
+
+.text {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+}
+
+.text div, .text p, .text ul, .text li {
+    margin: 0;
+    margin-bottom: 1.5vh;
+}
+
+.text a{
+    text-decoration: underline;
+    color: var(--dim-text-color)
 }
