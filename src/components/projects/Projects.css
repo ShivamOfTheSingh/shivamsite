@@ -29,9 +29,13 @@
     flex-direction: column;
 }
 
-.text div, .text p, .text ul, .text li {
+.text p, .text ul, .text li {
     margin: 0;
     margin-bottom: 1.5vh;
+}
+
+.text h1 {
+    margin-bottom: 0.5vh;
 }
 
 .text a{

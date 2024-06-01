@@ -2,11 +2,12 @@
     background-color: var(--main-bg-color);
     border: 1px var(--main-text-color) solid;
     height: 10vh;
-    padding: 1.25vh;
+    padding: 3vh;
+    padding-left: 2vh;
     display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
     transition: var(--transition-time);
 }
 
@@ -14,4 +15,25 @@
     cursor: default;
     border-color: var(--bright-text-color);
     background-color: var(--dim-bg-color);
+}
+
+.CellMain .pfp {
+    height: 11vh;
+    width: 11vh;
+    border-radius: 50%;
+    margin: 0px;
+    background-color: blue;
+}
+
+.CellMain .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 3vh;
+    padding: 0;
+}
+
+.CellMain .text h1 {
+    margin: 0;
+    margin-bottom: 1vh;
 }
