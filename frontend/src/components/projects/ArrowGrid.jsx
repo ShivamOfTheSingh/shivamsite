@@ -8,7 +8,7 @@ const ArrowGrid = () => {
     const setup = (p5, canvasParentRef) => {
         w = p5.windowWidth;
         h = p5.windowHeight;
-        scl = Math.ceil(w / 30);
+        scl = Math.ceil(w / 60);
         cols = Math.ceil(w / scl);
         rows = Math.ceil(h / scl);
         p5.createCanvas(w, h).parent(canvasParentRef);
@@ -17,9 +17,9 @@ const ArrowGrid = () => {
     const draw = (p5) => {
         p5.background(getComputedStyle(document.documentElement).getPropertyValue('--main-bg-color'));
         p5.stroke(getComputedStyle(document.documentElement).getPropertyValue('--main-text-color'));
-        p5.strokeWeight(0.5);
+        p5.strokeWeight(0.75);
 
-        let line_len = 20;
+        let line_len = 7.5;
         let user_x = p5.mouseX - p5.width / 2;
         let user_y = p5.mouseY - p5.height / 2;
 

@@ -1,9 +1,77 @@
-.rowmain {
-    background-color: red;
+.histmain {
+    background-color: var(--main-bg-color);
     border: solid 2px var(--main-text-color);
-    height: 27.5vh;
-    width: 75vh;
+    height: 25.5vh;
+    width: 73vh;
     position: absolute;
     left: 7.5vh;
     top: 65vh;
+    transition: 350ms;
+    padding: 1vh;
+    animation: fadeIn 1250ms ease-in-out;
+}
+
+.histmain:hover {
+    border-color: var(--bright-text-color);
+    background-color: var(--dim-bg-color);
+    color: var(--bright-text-color);
+    border-radius: 1%;
+}
+
+.hist_head {
+    font-size: 2vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hist_head p {
+    margin: 0;
+}
+
+.hist_head button {
+    margin-left: 2vh;
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+    border: 1px solid var(--main-text-color);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2vh;
+    font-weight: thin;
+    padding: 0.25vh 1.5vh;
+    transition: 350ms;
+}
+
+.histmain button.selected {
+    border-color: var(--dim-bg-color);
+    background-color: var(--bright-text-color);
+    color: var(--main-bg-color);
+    border-radius: 1%;
+    transition: 100ms;
+}
+
+.histmain button:hover {
+    border-color: var(--dim-bg-color);
+    background-color: var(--dim-text-color);
+    color: var(--dim-bg-color);
+    border-radius: 1%;
+    transition: 100ms;
+}
+
+.histmain button:active {
+    background-color: var(--bright-bg-color);
+    color: var(--dim-bg-color);
+    transform: scale(97%);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.97);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
