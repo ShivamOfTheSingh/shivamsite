@@ -5,7 +5,7 @@ Created using React+Vite and JavaScript, this is my personal portfolio website
 A welcoming homepage, with a retrowave styled animation. A typewriter animation used to give the welcoming text. p5,js was used to randomly generate valley shaped terrain using perlin noise and noise manipulation.
 
 ## Projects Page
-Containing my github profile informations & my repos with a dynamic configurations.
+Containing my github profile informations & my repos with a dynamic configurations. Uses Github's REST API to show statistics, recent repositories, and much more. Meow /ᐠ｡ꞈ｡ᐟ\
 > Work in Progress!
 
 ## Contacts Page

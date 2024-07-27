@@ -19,6 +19,7 @@
     left: 60vh;
     top: 37.5vh;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .giticon:hover {

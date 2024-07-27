@@ -43,7 +43,7 @@
     position: absolute;
     left: 0;
     bottom: -2px;
-    width: 85%;
+    width: 82.5%;
     transform: scaleX(0);
     height: 2px;
     background-color: var(--dim-text-color);
