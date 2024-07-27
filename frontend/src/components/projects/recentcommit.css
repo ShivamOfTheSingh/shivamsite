@@ -1,7 +1,7 @@
 .main-commit {
     position: absolute;
-    top: 7.5vh;
-    left: 60vh;
+    top: 5vh;
+    left: 57.5vh;
     height: 21vh;
     width: 21vh;
     padding: 2vh;
@@ -12,7 +12,7 @@
     flex-direction: column;
     justify-content: space-between;
     margin: 0vh;
-    animation: fadeIn 750ms ease-in-out;
+    animation: fadeIn 600 ease-in-out;
 }
 
 .main-commit a {

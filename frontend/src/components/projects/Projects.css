@@ -1,9 +1,7 @@
 .projects-main {
     position: absolute;
-}
-
-.fade-in {
-    animation: fadeIn 750ms ease-in-out;
+    max-height: 100vb;
+    overflow: hidden;
 }
 
 .git-grid {
@@ -16,10 +14,14 @@
     height: 25vh;
     width: 25vh;
     padding: 2px;
-    left: 60vh;
-    top: 37.5vh;
+    left: 57.5vh;
+    top: 35vh;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.gitimg {
+    animation: fadeIn 700ms ease-in-out;
 }
 
 .giticon:hover {

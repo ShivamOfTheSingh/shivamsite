@@ -1,0 +1,9 @@
+.rowmain {
+    background-color: red;
+    border: solid 2px var(--main-text-color);
+    height: 27.5vh;
+    width: 75vh;
+    position: absolute;
+    left: 7.5vh;
+    top: 65vh;
+}

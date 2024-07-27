@@ -10,8 +10,9 @@
     justify-content: center;
     transition: 350ms;
     position: absolute;
-    top: 7.5vh;
+    top: 5vh;
     left: 7.5vh;
+    animation: fadeIn 500ms ease-in-out;
 }
 
 .profile-main:hover {
@@ -52,4 +53,16 @@
 .profile-main:hover .profile-text a {
     color: var(--dim-text-color);
     font-size: 1.75vh;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.97);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
