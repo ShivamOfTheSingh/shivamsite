@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://github.com/user-attachments/assets/4390229c-3ffb-413b-927e-7ee3f1d6c8c8" alt="shivamsite-gif" />
+    <img src="https://github.com/user-attachments/assets/4390229c-3ffb-413b-927e-7ee3f1d6c8c8](https://github.com/user-attachments/assets/0bd36163-14ae-4a1e-b54e-278da9102e1b" alt="shivamsite-gif" />
 </div>
 
 # My Website
