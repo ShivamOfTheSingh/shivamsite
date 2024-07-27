@@ -1,0 +1,107 @@
+.EmailMain {
+    background-color: var(--main-bg-color);
+    border: 1px solid var(--main-text-color);
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    height: 52vh;
+    width: 55vh;
+    padding: 1.5vh;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-time);
+    animation: fadeIn 0.35s ease-in-out;
+}
+
+.EmailMain:hover {
+    background-color: var(--dim-bg-color);
+    border-color: var(--bright-text-color);
+}
+
+
+.EmailMain button {
+    position: absolute;
+    top: 1.5vh;
+    right: 1.5vh;
+    margin: 0vh;
+    padding: 0.625vh 1vh;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: normal;
+    font-size: 1.75vh;
+    border: solid 1px var(--main-text-color);
+    background-color: var(--main-text-color);
+    color: var(--main-bg-color);
+    transition: var(--transition-time);
+}
+
+.EmailMain button:hover {
+    background-color: var(--bright-text-color);
+    color: var(--main-bg-color);
+    border: inherit;
+    transition: 0.15s;
+}
+
+.EmailMain button:active {
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+    transform: scale(0.9);
+}
+
+.EmailMain p {
+    margin: 0px;
+    padding-bottom: 1.5vh;
+    transition: inherit;
+    font-size: 3vh;
+    font-weight: 600;
+}
+
+.EmailMain:hover p {
+    color: var(--bright-text-color);
+}
+
+.EmailMain input, .MessageInput {
+    border: solid 1px var(--main-text-color);
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: thin;
+    font-size: 1.35vh;
+    padding: 0.75vh;
+    margin-bottom: 1.5vh;
+    transition: inherit;
+}
+
+.EmailMain input:hover, .MessageInput:hover {
+    background-color: var(--dim-bg-color);
+    color: var(--bright-text-color);
+    border: solid 1px var(--dim-text-color);
+    font-weight: bold;
+}
+
+.EmailMain input:focus, .MessageInput:focus{
+    border: solid 1px var(--bright-text-color);
+    outline: none;
+}
+
+.MessageInput {
+    height: 35vh;
+    margin-bottom: 0;
+    resize: none;
+}
+
+.MessageInput::placeholder {
+    text-align: left;
+    vertical-align: top;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.97);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

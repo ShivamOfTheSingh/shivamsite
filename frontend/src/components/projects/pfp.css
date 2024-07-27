@@ -1,0 +1,35 @@
+.profile-main {
+    padding: 5vh 1.5vh;
+    height: 45vh;
+    width: 30vw;
+    border: solid 2px var(--main-text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 350ms;
+}
+
+.profile-main:hover {
+    background-color: var(--dim-bg-color);
+    border-color: var(--bright-text-color);
+    color: var(--bright-text-color);
+}
+
+.profile-picture {
+    height: 20vh;
+    width: 20vh;
+    border-radius: 50%;
+    border: solid 2px var(--main-text-color);
+    transition: border-color 350ms, transform 2s;
+    transform-origin: center;
+}
+
+.profile-main:hover .profile-picture {
+    border-color: var(--bright-text-color);
+    transform: rotate(360deg);
+}
+
+.profile-main:not(:hover) .profile-picture {
+    transform: rotate(0deg);
+}

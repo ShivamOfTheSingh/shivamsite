@@ -1,0 +1,34 @@
+.NavBarMain {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.left-side {
+    display: flex;
+    align-items: center;
+    padding-right: 1.5vh;
+    margin-top: 1.5vh;;
+    height: 100%;
+}
+
+.navbar-element {
+    font-size: 2vh;
+    font-weight: 100;
+    text-decoration: none;
+    color: var(--main-text-color);
+    padding: 1vh;
+    display: flex;
+    align-items: center;
+    transition: var(--transition-time);
+    margin-left: 3vh;
+}
+
+.navbar-element:hover {
+    color: var(--main-bg-color);
+    background-color: var(--main-text-color);
+}

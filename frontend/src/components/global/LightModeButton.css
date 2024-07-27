@@ -1,0 +1,33 @@
+.ButtonMain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5vh;
+    margin-left: 1.5vh;
+    width: 5vh;
+    height: 5vh;
+    min-width: 5vh;
+    min-height: 5vh;
+}
+
+.lightmode-button {
+    background-color: var(--main-bg-color);
+    border: solid;
+    border-color: var(--main-text-color);
+    border-width: 1px;
+    border-radius: 50%;
+    width: 4vh;
+    height: 4vh;
+    min-width: 4vh;
+    min-height: 4vh;
+    transition: var(--transition-time);
+}
+
+.lightmode-button:hover {
+    background-color: var(--main-text-color);
+}
+
+.lightmode-button:active {
+    background-color: var(--main-text-color);
+    border-color: var(--main-bg-color);
+}

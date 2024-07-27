@@ -1,0 +1,126 @@
+.AboutMain {
+    font-weight: 100;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.TextContainer {
+    padding: 0px;
+    position: absolute;
+    left: 9%;
+    height: 65vh;
+    width: 35vw;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    border: solid var(--main-text-color) 1px;
+    padding: 1.5vh;
+    background-color: var(--dim-bg-color);
+    margin: 0px;
+    transition: var(--transition-time);
+}
+
+.TextContainer:hover {
+    border-color: var(--bright-text-color);
+}
+
+.Facts {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+.Facts p {
+    font-size: 2vh;
+    margin: 0;
+    transition: var(--transition-time);
+}
+
+.TextContainer h1 {
+    margin: 0;
+    margin-bottom: 1vh;
+}
+
+.Facts,
+.TextContainer h1,
+.TextContainer {
+    animation: fadeinup 1.25s;
+}
+
+.Facts p:hover,
+.TextContainer h1:hover {
+    cursor: default;
+}
+
+.Facts p:hover {
+    color: var(--bright-text-color);
+}
+
+.modelCover,
+.tempLoader {
+    position: absolute;
+    position: absolute;
+    padding: 0px;
+    height: 70vh;
+    width: 50vw;
+    right: 2.5%;
+    background-color: var(--main-bg-color);
+    opacity: 0;
+    z-index: -1;
+}
+
+.tempLoader {
+    animation: loadModel 1.5s;
+}
+
+@keyframes coverModel {
+    0% {
+        opacity: 0;
+        z-index: 40;
+    }
+
+    35%, 65% {
+        opacity: 1;
+        z-index: 40;
+    }
+
+    100% {
+        opacity: 0;
+        z-index: -1;
+    }
+}
+
+@keyframes loadModel {
+    0% {
+        opacity: 1;
+        z-index: 40;
+    }
+
+    100% {
+        opacity: 0;
+        z-index: 0;
+    }
+    
+}
+
+@keyframes fadeinup {
+    0% {
+            opacity: 0;
+            transform: scale(0.97);
+        }
+    
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+}
+
+.animate-model {
+    animation: coverModel 0.75s;
+}

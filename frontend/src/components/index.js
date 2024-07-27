@@ -1,0 +1,5 @@
+export { default as Home } from './home/HomePage'
+export { default as NavBar } from './global/Navbar'
+export { default as Projects } from './projects/Projects'
+export { default as Contacts } from './contacts/Contacts'
+export { default as AboutMe } from './aboutme/AboutMe'
