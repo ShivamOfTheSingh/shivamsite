@@ -15,9 +15,7 @@ const Valley = () => {
 		rows = Math.ceil(h / size);
 
 		p5.noiseDetail(32, 0.55);
-		p5.createCanvas(window.innerWidth, window.innerHeight, p5.WEBGL).parent(
-			canvasParentRef
-		);
+		p5.createCanvas(window.innerWidth, window.innerHeight, p5.WEBGL).parent(canvasParentRef);
 	};
 
 	const draw = (p5) => {

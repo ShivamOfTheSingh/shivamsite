@@ -1,0 +1,21 @@
+.projects-main {
+    position: absolute;
+    animation: fadeIn 750ms ease-in-out;
+}
+
+.git-grid {
+    position: relative;
+    top: 3vh;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.97);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

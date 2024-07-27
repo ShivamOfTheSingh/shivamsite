@@ -1,13 +1,17 @@
 .profile-main {
-    padding: 5vh 1.5vh;
+    padding: 5vh 0vh;
     height: 45vh;
-    width: 30vw;
+    width: 45vh;
     border: solid 2px var(--main-text-color);
+    background-color: var(--main-bg-color);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     transition: 350ms;
+    position: absolute;
+    top: 7.5vh;
+    left: 7.5vh;
 }
 
 .profile-main:hover {
@@ -32,4 +36,19 @@
 
 .profile-main:not(:hover) .profile-picture {
     transform: rotate(0deg);
+}
+
+.profile-text {
+    margin-top: 3vh;
+}
+
+.profile-text a {
+    text-decoration: none;
+    color: var(--main-text-color);
+    transition: 350ms;
+}
+
+.profile-main:hover .profile-text a {
+    color: var(--dim-text-color);
+    font-size: 1.75vh;
 }
