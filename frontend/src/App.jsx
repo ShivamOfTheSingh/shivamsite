@@ -47,7 +47,7 @@ function App() {
 				<NavBar toggleTheme={toggleTheme} />
 				<Routes>
 					<Route path='/' element={<Home />} />
-					<Route path='/projects' element={<Projects />} />
+					<Route path='/projects' element={<Projects theme={theme} />} />
 					<Route path='/contacts' element={<Contacts />} />
 					<Route path='/me' element={<AboutMe theme={theme} />} />
 				</Routes>

@@ -18,6 +18,7 @@
     background-color: var(--dim-bg-color);
     border-color: var(--bright-text-color);
     color: var(--bright-text-color);
+    border-radius: 1%;
 }
 
 .profile-picture {

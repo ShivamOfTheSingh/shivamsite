@@ -2,8 +2,8 @@
     position: absolute;
     top: 7.5vh;
     left: 60vh;
-    height: 22vh;
-    width: 22vh;
+    height: 21vh;
+    width: 21vh;
     padding: 2vh;
     background-color: var(--main-bg-color);
     border: solid 2px var(--main-text-color);
@@ -17,7 +17,7 @@
 
 .main-commit a {
     color: var(--main-text-color);
-    transition: 500ms;
+    transition: 350ms;
     text-decoration: none;
     position: relative;
     display: inline-block;
@@ -35,6 +35,7 @@
 .main-commit:hover {
     background-color: var(--dim-bg-color);
     color: var(--bright-text-color);
+    border-radius: 1%;
 }
 
 .main-commit a::after {
@@ -47,7 +48,7 @@
     height: 2px;
     background-color: var(--dim-text-color);
     transform-origin: bottom center;
-    transition: transform 500ms;
+    transition: transform 350ms;
 }
 
 .main-commit:hover a::after {

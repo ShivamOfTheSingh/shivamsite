@@ -43,7 +43,7 @@ const RecentCommit = ({ repos, formatDate }) => {
             <a href={repos[max_index].html_url} target="_blank" rel="noopener noreferrer" title={repos[max_index].name + " ~ My Most Recent Repository"}>
                 <div className='main-commit'>
                     <a href={repos[max_index].html_url} target="_blank" rel="noopener noreferrer">My latest commit ~</a>
-                    <h1>{'"' + commits[repos[max_index].name].commit.message + '"'}</h1>
+                    <h2>{'"' + commits[repos[max_index].name].commit.message + '"'}</h2>
                     <p>{formatDate(commits[repos[max_index].name].commit.committer.date)}</p>
                 </div>
             </a>

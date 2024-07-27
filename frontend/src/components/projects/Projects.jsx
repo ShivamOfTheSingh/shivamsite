@@ -5,7 +5,7 @@ import GitProfile from "./GitProfile";
 import ArrowGrid from "./ArrowGrid";
 import RecentCommit from "./RecentCommit";
 
-const Projects = (props) => {
+const Projects = ({ theme }) => {
 	const [userInfo, setUserInfo] = useState(null);
 	const [allRepos, setRepos] = useState(null);
 
@@ -37,17 +37,27 @@ const Projects = (props) => {
 		return `${month} ${day}, ${year} at ${time}`;
 	};
 
+	const playMeowSound = () => {
+		const audio = new Audio("./sounds/meow.mp3");
+		audio.play();
+	};
+
 	return (
-		<div className="projects-main">
+		<div className="projects-main fade-in">
 			<div className="lol">
-			{(!userInfo && !allRepos) ? (
-				<></>
-			) : (
+				{(!userInfo && !allRepos) ? (
+					<></>
+				) : (
 					<div className="git-grid">
 						<GitProfile userInfo={userInfo} formatDate={formatDate} />
-						<RecentCommit repos={allRepos} formatDate={formatDate}/>
+						<RecentCommit repos={allRepos} formatDate={formatDate} />
+						{theme === "light" ? (
+							<img src="./icons/githubdark.svg" className="giticon" title="meow" onClick={playMeowSound} />
+						) : (
+							<img src="./icons/githublight.svg" className="giticon" title="meow meow" onClick={playMeowSound} />
+						)}
 					</div>
-			)}
+				)}
 			</div>
 			<div className="p5-backgroud">
 				<ArrowGrid />
