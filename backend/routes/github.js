@@ -59,4 +59,27 @@ router.get('/user/repo/commits', async (req, res) => {
     }
 });
 
+router.get('/user/repo/commits/stats', async (req, res) => {
+    try {
+        const { Octokit } = await import('@octokit/rest');
+        const octokit = new Octokit({
+            auth: process.env.GITHUB_TOKEN,
+        });
+
+        const { repo } = req.query;
+        console.log("Sent it")
+
+        const { data } = await octokit.request('GET /repos/{owner}/{repo}/stats/punch_card', {
+            owner: 'shivamofthesingh',
+            repo: repo,
+            headers: {
+                'X-GitHub-Api-Version': '2022-11-28'
+            }
+        });
+        res.json(data);
+    } catch (error) {
+        res.status(error.status || 500).json({ message: error.message });
+    }
+});
+
 module.exports = router;

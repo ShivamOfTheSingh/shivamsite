@@ -71,7 +71,7 @@ const Projects = ({ theme }) => {
                 />
               )}
             </div>
-            <History />
+            <History repo={allRepos}/>
           </div>
         )}
       </div>

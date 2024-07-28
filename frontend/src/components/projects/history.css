@@ -64,6 +64,13 @@
     transform: scale(97%);
 }
 
+.stats {
+    margin-top: 1vh;
+    height: 21vh;
+    display: flex;
+    
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
