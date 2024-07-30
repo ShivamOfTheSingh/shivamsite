@@ -9,7 +9,7 @@ const WeekStats = ({ repos }) => {
             const commitsData = {};
             const promises = repos.map(async (repo) => {
                 const name = repo.name;
-                const res = await axios.get("http://localhost:6969/github/user/repo/commits/stats", {
+                const res = await axios.get("http://localhost:6969/github/user/repo/commits/stats/weekly", {
                     params: { repo: name }
                 });
                 commitsData[name] = res.data;

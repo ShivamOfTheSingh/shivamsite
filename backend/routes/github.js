@@ -13,6 +13,7 @@ router.get('/user', async (req, res) => {
                 'X-GitHub-Api-Version': '2022-11-28'
             }
         });
+        console.log("Sending user data");
         res.json(data);
     } catch (error) {
         res.status(error.status || 500).json({ message: error.message });
@@ -31,6 +32,7 @@ router.get('/user/repo', async (req, res) => {
                 'X-GitHub-Api-Version': '2022-11-28'
             }
         });
+        console.log("Sending repo data");
         res.json(data);
     } catch (error) {
         res.status(error.status || 500).json({ message: error.message });
@@ -53,13 +55,14 @@ router.get('/user/repo/commits', async (req, res) => {
                 'X-GitHub-Api-Version': '2022-11-28'
             }
         });
+        console.log("Sending commit data for repo: " + repo);
         res.json(data);
     } catch (error) {
         res.status(error.status || 500).json({ message: error.message });
     }
 });
 
-router.get('/user/repo/commits/stats', async (req, res) => {
+router.get('/user/repo/commits/stats/weekly', async (req, res) => {
     try {
         const { Octokit } = await import('@octokit/rest');
         const octokit = new Octokit({
@@ -77,6 +80,7 @@ router.get('/user/repo/commits/stats', async (req, res) => {
             }
         });
         res.json(data);
+        console.log("Sending user commit data");
     } catch (error) {
         res.status(error.status || 500).json({ message: error.message });
     }
