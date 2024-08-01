@@ -50,8 +50,8 @@ const Projects = ({ theme }) => {
           <></>
         ) : (
           <div className="git-grid">
-            <GitProfile userInfo={userInfo} formatDate={formatDate} />
-            <RecentCommit repos={allRepos} formatDate={formatDate} />
+            {userInfo && <GitProfile userInfo={userInfo} formatDate={formatDate} />}
+            {allRepos && <RecentCommit repos={allRepos} formatDate={formatDate} />}
             <div className="gitimg">
               {theme === "dark" ? (
                 <img
@@ -71,7 +71,7 @@ const Projects = ({ theme }) => {
                 />
               )}
             </div>
-            <History repo={allRepos}/>
+            {allRepos && <History repo={allRepos} />}
           </div>
         )}
       </div>

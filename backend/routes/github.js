@@ -62,7 +62,7 @@ router.get('/user/repo/commits', async (req, res) => {
     }
 });
 
-router.get('/user/repo/commits/stats/weekly', async (req, res) => {
+router.get('/user/repo/commits/stats/oat', async (req, res) => {
     try {
         const { Octokit } = await import('@octokit/rest');
         const octokit = new Octokit({
@@ -70,19 +70,18 @@ router.get('/user/repo/commits/stats/weekly', async (req, res) => {
         });
 
         const { repo } = req.query;
-        console.log("Sent it")
 
-        const { data } = await octokit.request('GET /repos/{owner}/{repo}/stats/punch_card', {
+        const { data } = await octokit.request('GET /repos/{owner}/{repo}/stats/contributors', {
             owner: 'shivamofthesingh',
             repo: repo,
             headers: {
                 'X-GitHub-Api-Version': '2022-11-28'
             }
         });
+        console.log("Sending user commit data lol for repo: " + repo);
         res.json(data);
-        console.log("Sending user commit data");
     } catch (error) {
-        res.status(error.status || 500).json({ message: error.message });
+        console.log("fudge");
     }
 });
 

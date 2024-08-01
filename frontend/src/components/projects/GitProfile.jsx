@@ -3,7 +3,7 @@ import "./pfp.css"
 
 const GitProfile = ({ userInfo, formatDate }) => {
   return (
-    <a href={userInfo.html_url} title={userInfo.login + " - My Github"} target="_blank" rel="noopener noreferrer">
+    <a href={userInfo.html_url} title={`${userInfo.login} - My Github`} target="_blank" rel="noopener noreferrer">
       <div className="profile-main">
         <img className="profile-picture" src={userInfo.avatar_url} alt="Profile" />
         <div className="profile-text">
@@ -14,11 +14,11 @@ const GitProfile = ({ userInfo, formatDate }) => {
             <li>Followers {userInfo.followers} - Following {userInfo.following}</li>
             <li>Number of repos: {userInfo.public_repos}</li>
           </ul>
-          <a href={userInfo.html_url} title={userInfo.login + " - My Github"} target="_blank" rel="noopener noreferrer">Check it out!</a>
+          <a href={userInfo.html_url} title={`${userInfo.login} - My Github`} target="_blank" rel="noopener noreferrer">Check it out!</a>
         </div>
       </div>
     </a>
-  )
+  );
 }
 
-export default GitProfile
+export default GitProfile;
