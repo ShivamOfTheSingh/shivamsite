@@ -6,7 +6,7 @@ const OATStats = ({ repos, fetchData }) => {
   const [data, setData] = useState(null);
   const [total, setTotal] = useState([0, 0, 0]);
 
-  const calcTotal = () => {
+  const calcTotal = async() => {
     let c = 0, a = 0, d = 0, first = false, recent;
     for (let repo of repos) {
       c += data[repo.name][0].total;
@@ -26,20 +26,16 @@ const OATStats = ({ repos, fetchData }) => {
   useEffect(() => {
     const fetchAndCalculate = async () => {
       await fetchData("http://localhost:6969/github/user/repo/commits/stats/oat", repos, setData);
+      setTotal(calcTotal());
     };
     fetchAndCalculate();
   }, [repos, fetchData]);
-
-  useEffect(() => {
-    if (data) {
-      setTotal(calcTotal());
-    }
-  }, [data]);
-
+      
   return (
     <div>
       {data && (
         <div>
+          lol
           <div>{total[0]}</div>
           <div>{total[1]}</div>
           <div>{total[2]}</div>
