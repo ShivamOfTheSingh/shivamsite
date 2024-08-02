@@ -4,17 +4,18 @@ import "./history.css";
 
 const OATStats = ({ repos, fetchData }) => {
   const [data, setData] = useState(null);
-  const [total, setTotal] = useState([0, 0, 0]);
+  const [total, setTotal] = useState([0, 0, 0, 0]);
 
-  const calcTotal = async() => {
-    let c = 0, a = 0, d = 0, first = false, recent;
+  const calcTotal = (data) => {
+    let c = 0, a = 0, d = 0, recent = 0;
+    let first = false;
     for (let repo of repos) {
       c += data[repo.name][0].total;
       console.log("Repo: " + repo.name + " commits: " + data[repo.name][0].total);
       for (let week of data[repo.name][0].weeks) {
         if (!first) {
           first = true;
-          recent = week.c
+          recent = week.c;
         }
         a += week.a;
         d += week.d;
@@ -26,20 +27,24 @@ const OATStats = ({ repos, fetchData }) => {
   useEffect(() => {
     const fetchAndCalculate = async () => {
       await fetchData("http://localhost:6969/github/user/repo/commits/stats/oat", repos, setData);
-      setTotal(calcTotal());
     };
     fetchAndCalculate();
   }, [repos, fetchData]);
-      
+
+  useEffect(() => {
+    if (data) {
+      setTotal(calcTotal(data))
+    }
+  }, [data])
+
   return (
     <div>
       {data && (
         <div>
-          lol
-          <div>{total[0]}</div>
-          <div>{total[1]}</div>
-          <div>{total[2]}</div>
-          <div>{total[3]}</div>
+          <div>Commits: {total[0]}</div>
+          <div>Additions: {total[1]}</div>
+          <div>Deletions: {total[2]}</div>
+          <div>Most recent commit: {total[3]}</div>
         </div>
       )}
     </div>
