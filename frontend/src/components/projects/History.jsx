@@ -4,24 +4,25 @@ import "./history.css";
 
 const OATStats = ({ repos, fetchData }) => {
   const [data, setData] = useState(null);
-  const [total, setTotal] = useState([0, 0, 0, 0]);
+  const [total, setTotal] = useState([0, 0, 0]);
 
   const calcTotal = (data) => {
-    let c = 0, a = 0, d = 0, recent = 0;
-    let first = false;
-    for (let repo of repos) {
-      c += data[repo.name][0].total;
-      console.log("Repo: " + repo.name + " commits: " + data[repo.name][0].total);
-      for (let week of data[repo.name][0].weeks) {
-        if (!first) {
-          first = true;
-          recent = week.c;
+    let c = 0, a = 0, d = 0;
+    if (data) {
+      for (let repo of repos) {
+        for (let i = 0; i < data[repo.name].length; i++) {
+          console.log(repo.name + ": " + JSON.stringify(data[repo.name][i].total))
+          c += data[repo.name][i].total;
+          console.log(c)
+          for (let week of data[repo.name][i].weeks) {
+            a += week.a;
+            d += week.d;
+          }
         }
-        a += week.a;
-        d += week.d;
       }
     }
-    return [c, a, d, recent];
+    console.log("TOTAL: " + c)
+    return [c, a, d];
   };
 
   useEffect(() => {
@@ -33,23 +34,33 @@ const OATStats = ({ repos, fetchData }) => {
 
   useEffect(() => {
     if (data) {
-      setTotal(calcTotal(data))
+      setTotal(calcTotal(data));
     }
-  }, [data])
+  }, [data]);
 
   return (
     <div>
       {data && (
-        <div>
-          <div>Commits: {total[0]}</div>
-          <div>Additions: {total[1]}</div>
-          <div>Deletions: {total[2]}</div>
-          <div>Most recent commit: {total[3]}</div>
+        <div className='OAT'>
+          <div className='total-commits'>
+            <p>{total[0]}</p>
+            Total Commits
+          </div>
+          <div className='specs'>
+            <p>- Total Additions: {total[1]}</p>
+            <p>- Total Deletions: {total[2]}</p>
+          </div>
         </div>
       )}
     </div>
   );
 };
+
+const YearData = () => {
+  return (
+    <p>YEAR DATA LOLOLLOLOLOLOLOLOL</p>
+  )
+}
 
 const History = ({ repo }) => {
   const [selected, setSelected] = useState('week');
@@ -62,7 +73,11 @@ const History = ({ repo }) => {
         const res = await axios.get(url, {
           params: { repo: name }
         });
-        data_per_repo[name] = res.data;
+        if (res.data) {
+          data_per_repo[name] = res.data;
+        } else {
+          data_per_repo[name] = [];
+        }
       });
       await Promise.all(promises);
       setVar(data_per_repo);
@@ -72,7 +87,14 @@ const History = ({ repo }) => {
   };
 
   const getCurrentStats = () => {
-    return <OATStats repos={repo} fetchData={fetchData} />;
+    switch (selected) {
+      case "year":
+        return <YearData />
+      case "start":
+        return <OATStats repos={repo} fetchData={fetchData} />
+      default:
+        return <p>Select a time period</p>;
+    }
   };
 
   return (

@@ -67,8 +67,10 @@
 .stats {
     margin-top: 1vh;
     height: 21vh;
+    width: 100%;
     display: flex;
-    
+    justify-content: center;
+    align-items: center;
 }
 
 @keyframes fadeIn {
@@ -81,4 +83,51 @@
         opacity: 1;
         transform: scale(1);
     }
+}
+
+.OAT {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 73vh;
+    height: 22vh;
+    animation: fadeIn 350ms ease-in-out;
+}
+
+.total-commits {
+    display: flex;
+    height: 17.5vh;
+    width: 17.5vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--main-text-color);
+    color: var(--main-bg-color);
+    border-radius: 50%;
+    position: relative;
+    transition: 350ms;
+}
+
+.total-commits p {
+    font-size: 7.5vh;
+    padding: 0;
+    margin: 0;
+}
+
+.OAT:hover .total-commits{
+    border-color: var(--bright-text-color);
+    background-color: var(--dim-bg-color);
+    color: var(--bright-text-color);
+    border-radius: 1%;
+}
+
+.specs p {
+    font-size: 2vh;
+    color: var(--main-text-color);
+    transition: 200ms;
+}
+
+.specs p:hover {
+    color: var(--dim-text-color);
 }
