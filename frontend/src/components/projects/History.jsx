@@ -56,11 +56,55 @@ const OATStats = ({ repos, fetchData }) => {
   );
 };
 
-const YearData = () => {
+const YearStats = () => {
   return (
     <p>YEAR DATA LOLOLLOLOLOLOLOLOL</p>
   )
 }
+
+const WeekStats = ({ repos, fetchData }) => {
+  const [data, setData] = useState(null);
+  const [total, setTotal] = useState(null);
+
+  useEffect(() => {
+    const fetchAndCalculate = async () => {
+      await fetchData("http://localhost:6969/github/user/repo/commits/stats/week", repos, setData);
+    };
+    fetchAndCalculate();
+  }, [repos, fetchData]);
+
+  const calcTotal = (data) => {
+    if (data) {
+      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+      let ret = {};
+      for (let day of days) {
+        ret[day] = [];
+        for (let repo of repos) {
+          let t = [];
+          t.push(repo.name);
+          for (let i = 0; i < Object.keys(data[repo.name]).length; i++) {
+            t.push(data[repo.name][i].commit.message)
+          }
+          ret.push(t)
+        }
+      }
+      return ret;
+    }
+    return [];
+  };
+
+  useEffect(() => {
+    if (data) {
+      setTotal(calcTotal(data));
+    }
+  }, [data]);
+
+  return (
+    <div>
+      {total && <div>{total}</div>}
+    </div>
+  );
+};
 
 const History = ({ repo }) => {
   const [selected, setSelected] = useState('week');
@@ -88,12 +132,14 @@ const History = ({ repo }) => {
 
   const getCurrentStats = () => {
     switch (selected) {
+      case "week":
+        return <WeekStats repos = { repo } fetchData = { fetchData }/>
       case "year":
-        return <YearData />
+        return <YearStats />
       case "start":
         return <OATStats repos={repo} fetchData={fetchData} />
       default:
-        return <p>Select a time period</p>;
+        return <p>Select a time period - Something Broke</p>;
     }
   };
 
