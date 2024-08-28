@@ -71,8 +71,39 @@ const YearStats = () => {
 }
 
 const WeeklyCommitStats = ({ data }) => {
+  const dates = Object.keys(data);
+  const counts = Object.values(data);
+  let maxCount = 0
+  let total_commits = 0
+
+  for(let count of counts) {
+    if(count[0] > maxCount) {
+      maxCount = count[0]
+    }
+    total_commits += count[0]
+  }
+
   return (
-    <div>HEIADJLKSAJKLDJASKL</div>
+    <div className='week_stats_main'>
+      <div className='week_text'>
+        <div>I made a total of&nbsp; </div>
+        <div className='lol'>{total_commits}</div>
+        <div>&nbsp;commits this week!</div>
+      </div>
+      <div className='labels'>
+        {
+          dates.map((date, index) => (
+            <div key={index} className='single_day'>
+              <div className='col_container'>
+                <div className='counts'>{counts[index]}</div>
+                <div className='column' style={{ height: `${(counts[index][0] / maxCount) * 90}%` }}></div>
+              </div>
+              <div className='label'>{date}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
   )
 }
 
@@ -126,7 +157,7 @@ const WeekStats = ({ repos, fetchData }) => {
 
   return (
     <div>
-      {total && <WeeklyCommitStats data={data} />}
+      {total && <WeeklyCommitStats data={total} />}
     </div>
   );
 };

@@ -133,3 +133,63 @@
 .specs p:hover {
     color: var(--dim-text-color);
 }
+
+.week_stats_main {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 73vh;
+}
+
+.labels {
+    margin-top: 0.5vh;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 19vh;
+    width: 95%;
+}
+
+.single_day {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.label {
+    margin-top: 0.5vh;
+    font-size: 1.25vh;
+}
+
+.col_container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.counts {
+    font-size: 1.5vh;
+}
+
+.column {
+    width: 100%;
+    background-color: var(--main-text-color);
+}
+
+.week_text {
+    height: 2vh;
+    margin-top: 0.25vh;
+    display: flex;
+    align-items: center;
+}
+
+.week_stats_main:hover .week_text .lol {
+    color: var(--dim-text-color);
+}
