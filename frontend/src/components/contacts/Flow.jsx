@@ -5,7 +5,7 @@ import "../../App.css";
 const Flow = () => {
     let w, h, nums;
     let zOff = 10;
-    let scl = 0.005;
+    let scl = 0.0025;
     let speed = 2;
     let particles = [];
     let cursor;
