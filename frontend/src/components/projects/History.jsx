@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from "axios";
-import "./history.css";
+import axios from 'axios';
+import './history.css';
 
 const OATStats = ({ repos, fetchData }) => {
   const [data, setData] = useState(null);
@@ -29,7 +29,11 @@ const OATStats = ({ repos, fetchData }) => {
   useEffect(() => {
     const fetchAndCalculate = async () => {
       try {
-        const fetchedData = await fetchData("http://localhost:6969/github/user/repo/commits/stats/oat", repos, setData);
+        const fetchedData = await fetchData(
+          'http://localhost:6969/github/user/repo/commits/stats/oat',
+          repos,
+          setData
+        );
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -40,14 +44,13 @@ const OATStats = ({ repos, fetchData }) => {
 
   useEffect(() => {
     if (data) {
-      const totals = calcTotal(data);
-      setTotal(totals);
+      setTotal(calcTotal(data));
     }
   }, [data]);
 
   return (
     <div>
-      {data && (
+      {data && total && (
         <div className='OAT'>
           <div className='total-commits'>
             <p>{total[0]}</p>
@@ -63,48 +66,78 @@ const OATStats = ({ repos, fetchData }) => {
   );
 };
 
-const YearStats = () => {
-  return (
-    <p>YEAR DATA LOLOLLOLOLOLOLOLOL</p>
-  )
-}
+const YearStats = ({ repos, fetchData }) => {
+  const [data, setData] = useState(null);
+  const [total, setTotal] = useState(null);
+
+  const calcTotal = (data) => {
+    console.log(data)
+    return ret
+  };
+
+  useEffect(() => {
+    const fetchAndCalculate = async () => {
+      try {
+        const fetchedData = await fetchData(
+          'http://localhost:6969/github/user/repo/commits/stats/year',
+          repos,
+          setData
+        );
+        setData(fetchedData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchAndCalculate();
+  }, [repos, fetchData]);
+
+  useEffect(() => {
+    if (data) {
+      setTotal(calcTotal(data));
+    }
+  }, [data]);
+
+  return <div>{data && <div>{total}</div>}</div>;
+};
 
 const WeeklyCommitStats = ({ data }) => {
   const dates = Object.keys(data);
   const counts = Object.values(data);
-  let maxCount = 0
-  let total_commits = 0
+  let maxCount = 0;
+  let total_commits = 0;
 
-  for(let count of counts) {
-    if(count[0] > maxCount) {
-      maxCount = count[0]
+  for (let count of counts) {
+    if (count[0] > maxCount) {
+      maxCount = count[0];
     }
-    total_commits += count[0]
+    total_commits += count[0];
   }
 
   return (
     <div className='week_stats_main'>
       <div className='week_text'>
-        <div>I made a total of&nbsp; </div>
+        <div>I made a total of&nbsp;</div>
         <div className='lol'>{total_commits}</div>
         <div>&nbsp;commits this week!</div>
       </div>
       <div className='labels'>
-        {
-          dates.map((date, index) => (
-            <div key={index} className='single_day'>
-              <div className='col_container'>
-                <div className='counts'>{counts[index]}</div>
-                <div className='column' style={{ height: `${(counts[index][0] / maxCount) * 90}%` }}></div>
-              </div>
-              <div className='label'>{date}</div>
+        {dates.map((date, index) => (
+          <div key={index} className='single_day'>
+            <div className='col_container'>
+              <div className='counts'>{counts[index]}</div>
+              <div
+                className='column'
+                style={{ height: `${(counts[index][0] / maxCount) * 90}%` }}
+              ></div>
             </div>
-          ))
-        }
+            <div className='label'>{date}</div>
+          </div>
+        ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
 const WeekStats = ({ repos, fetchData }) => {
   const [data, setData] = useState(null);
@@ -112,16 +145,20 @@ const WeekStats = ({ repos, fetchData }) => {
 
   useEffect(() => {
     const fetchAndCalculate = async () => {
-      await fetchData("http://localhost:6969/github/user/repo/commits/stats/week", repos, setData);
+      await fetchData(
+        'http://localhost:6969/github/user/repo/commits/stats/week',
+        repos,
+        setData
+      );
     };
     fetchAndCalculate();
   }, [repos, fetchData]);
 
   const calcTotal = (data) => {
     if (data) {
-      let today = new Date()
-      let lastMonday = new Date()
-      lastMonday.setDate(today.getDate() - ((today.getDay() + 6) % 7))
+      let today = new Date();
+      let lastMonday = new Date();
+      lastMonday.setDate(today.getDate() - ((today.getDay() + 6) % 7));
 
       let days = [];
       for (let i = 0; i < 7; i++) {
@@ -132,16 +169,18 @@ const WeekStats = ({ repos, fetchData }) => {
 
       let ret = {};
       for (let day of days) {
-        ret[day] = ret[day] ? ret[day] : []
-        let t = 0
+        ret[day] = ret[day] ? ret[day] : [];
+        let t = 0;
         for (let repo of repos) {
           for (let i = 0; i < Object.keys(data[repo.name]).length; i++) {
-            if (data[repo.name][i].commit.author.date.substring(0, 10) == day ) {
-              t += 1
+            if (
+              data[repo.name][i].commit.author.date.substring(0, 10) == day
+            ) {
+              t += 1;
             }
           }
         }
-        ret[day].push(t)
+        ret[day].push(t);
       }
       return ret;
     }
@@ -154,45 +193,41 @@ const WeekStats = ({ repos, fetchData }) => {
     }
   }, [data]);
 
-  return (
-    <div>
-      {total && <WeeklyCommitStats data={total} />}
-    </div>
-  );
+  return <div>{total && <WeeklyCommitStats data={total} />}</div>;
+};
+
+const fetchData = async (url, repos, setVar) => {
+  try {
+    const data_per_repo = {};
+    const promises = repos.map(async (repo) => {
+      const name = repo.name;
+      const res = await axios.get(url, {
+        params: { repo: name },
+      });
+      if (res.data) {
+        data_per_repo[name] = res.data;
+      } else {
+        data_per_repo[name] = [];
+      }
+    });
+    await Promise.all(promises);
+    setVar(data_per_repo);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
 };
 
 const History = ({ repo }) => {
   const [selected, setSelected] = useState('week');
 
-  const fetchData = async (url, repos, setVar) => {
-    try {
-      const data_per_repo = {};
-      const promises = repos.map(async (repo) => {
-        const name = repo.name;
-        const res = await axios.get(url, {
-          params: { repo: name }
-        });
-        if (res.data) {
-          data_per_repo[name] = res.data;
-        } else {
-          data_per_repo[name] = [];
-        }
-      });
-      await Promise.all(promises);
-      setVar(data_per_repo);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
-
   const getCurrentStats = () => {
     switch (selected) {
-      case "week":
-        return <WeekStats repos = { repo } fetchData = { fetchData }/>
-      case "year":
-        return <YearStats />
-      case "start":
-        return <OATStats repos={repo} fetchData={fetchData} />
+      case 'week':
+        return <WeekStats repos={repo} fetchData={fetchData} />;
+      case 'year':
+        return <YearStats repos={repo} fetchData={fetchData} />;
+      case 'start':
+        return <OATStats repos={repo} fetchData={fetchData} />;
       default:
         return <p>Select a time period - Something Broke</p>;
     }
@@ -202,13 +237,26 @@ const History = ({ repo }) => {
     <div className='histmain'>
       <div className='hist_head'>
         <p>My Github Activity For The </p>
-        <button className={selected === 'week' ? 'selected' : ''} onClick={() => setSelected('week')}>Week</button>
-        <button className={selected === 'year' ? 'selected' : ''} onClick={() => setSelected('year')}>Year</button>
-        <button className={selected === 'start' ? 'selected' : ''} onClick={() => setSelected('start')}>Start of Time</button>
+        <button
+          className={selected === 'week' ? 'selected' : ''}
+          onClick={() => setSelected('week')}
+        >
+          Week
+        </button>
+        <button
+          className={selected === 'year' ? 'selected' : ''}
+          onClick={() => setSelected('year')}
+        >
+          Year
+        </button>
+        <button
+          className={selected === 'start' ? 'selected' : ''}
+          onClick={() => setSelected('start')}
+        >
+          Start of Time
+        </button>
       </div>
-      <div className='stats'>
-        {getCurrentStats()}
-      </div>
+      <div className='stats'>{getCurrentStats()}</div>
     </div>
   );
 };
