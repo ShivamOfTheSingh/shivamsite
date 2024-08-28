@@ -9,20 +9,19 @@ const OATStats = ({ repos, fetchData }) => {
   const calcTotal = (data) => {
     let c = 0, a = 0, d = 0;
 
-    for (let repo of repos) {
+    repos.forEach((repo) => {
       if (data[repo.name] && Array.isArray(data[repo.name])) {
-        for (let i = 0; i < data[repo.name].length; i++) {
-          c += data[repo.name][i].total;
-
-          for (let week of data[repo.name][i].weeks) {
+        data[repo.name].forEach((entry) => {
+          c += entry.total;
+          entry.weeks.forEach((week) => {
             a += week.a;
             d += week.d;
-          }
-        }
+          });
+        });
       } else {
         console.error(`Data for repo ${repo.name} is missing or malformed.`);
       }
-    }
+    });
 
     return [c, a, d];
   };
@@ -30,7 +29,7 @@ const OATStats = ({ repos, fetchData }) => {
   useEffect(() => {
     const fetchAndCalculate = async () => {
       try {
-        await fetchData("http://localhost:6969/github/user/repo/commits/stats/oat", repos, setData);
+        const fetchedData = await fetchData("http://localhost:6969/github/user/repo/commits/stats/oat", repos, setData);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -122,7 +121,7 @@ const WeekStats = ({ repos, fetchData }) => {
     if (data) {
       let today = new Date()
       let lastMonday = new Date()
-      lastMonday.setDate(today.getDate() - today.getDay())
+      lastMonday.setDate(today.getDate() - ((today.getDay() + 6) % 7))
 
       let days = [];
       for (let i = 0; i < 7; i++) {
