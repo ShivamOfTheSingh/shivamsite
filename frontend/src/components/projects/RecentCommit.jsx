@@ -45,7 +45,7 @@ const RecentCommit = ({ repos, formatDate }) => {
                     <a href={repos[max_index].html_url} target="_blank" rel="noopener noreferrer">My latest commit ~</a>
                     <h2>
                         {commits[repos[max_index].name].commit.message.length > 40 
-                            ? `"${commits[repos[max_index].name].commit.message.substring(0, 40)}..."` 
+                            ? `"${commits[repos[max_index].name].commit.message.substring(0, 45)}..."` 
                             : `"${commits[repos[max_index].name].commit.message}"`}
                     </h2>
                     <p>{formatDate(commits[repos[max_index].name].commit.committer.date)}</p>
