@@ -8,33 +8,41 @@ const OATStats = ({ repos, fetchData }) => {
 
   const calcTotal = (data) => {
     let c = 0, a = 0, d = 0;
-    if (data) {
-      for (let repo of repos) {
+
+    for (let repo of repos) {
+      if (data[repo.name] && Array.isArray(data[repo.name])) {
         for (let i = 0; i < data[repo.name].length; i++) {
-          console.log(repo.name + ": " + JSON.stringify(data[repo.name][i].total))
           c += data[repo.name][i].total;
-          console.log(c)
+
           for (let week of data[repo.name][i].weeks) {
             a += week.a;
             d += week.d;
           }
         }
+      } else {
+        console.error(`Data for repo ${repo.name} is missing or malformed.`);
       }
     }
-    console.log("TOTAL: " + c)
+
     return [c, a, d];
   };
 
   useEffect(() => {
     const fetchAndCalculate = async () => {
-      await fetchData("http://localhost:6969/github/user/repo/commits/stats/oat", repos, setData);
+      try {
+        await fetchData("http://localhost:6969/github/user/repo/commits/stats/oat", repos, setData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
     };
+
     fetchAndCalculate();
   }, [repos, fetchData]);
 
   useEffect(() => {
     if (data) {
-      setTotal(calcTotal(data));
+      const totals = calcTotal(data);
+      setTotal(totals);
     }
   }, [data]);
 
@@ -99,7 +107,7 @@ const WeekStats = ({ repos, fetchData }) => {
         for (let repo of repos) {
           for (let i = 0; i < Object.keys(data[repo.name]).length; i++) {
             if (data[repo.name][i].commit.author.date.substring(0, 10) == day ) {
-              t += 1``
+              t += 1
             }
           }
         }

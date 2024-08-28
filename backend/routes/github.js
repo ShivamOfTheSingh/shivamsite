@@ -112,9 +112,6 @@ router.get('/user/repo/commits/stats/week', async (req, res) => {
             since: since,
             until: until
         });
-
-        console.log(data)
-
         console.log("Sending WEEKLY commit data lol for repo: " + repo);
         res.json(data);
     } catch (error) {
