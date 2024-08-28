@@ -10,7 +10,8 @@ const OATStats = ({ repos, fetchData }) => {
     let c = 0, a = 0, d = 0;
 
     repos.forEach((repo) => {
-      if (data[repo.name] && Array.isArray(data[repo.name])) {
+      try {
+        if (data[repo.name] && Array.isArray(data[repo.name])) {
         data[repo.name].forEach((entry) => {
           c += entry.total;
           entry.weeks.forEach((week) => {
@@ -18,8 +19,10 @@ const OATStats = ({ repos, fetchData }) => {
             d += week.d;
           });
         });
-      } else {
+      }
+      } catch (error) {
         console.error(`Data for repo ${repo.name} is missing or malformed.`);
+        return calcTotal(data)
       }
     });
 
@@ -71,7 +74,12 @@ const YearStats = ({ repos, fetchData }) => {
   const [total, setTotal] = useState(null);
 
   const calcTotal = (data) => {
-    console.log(data)
+    let ret = new Array(52).fill(0)
+    for (let repo of repos) {
+      for (let i = 0; i < 52; i++) {
+        ret[i] += data[repo.name].owner[i]
+      }
+    }
     return ret
   };
 
@@ -83,7 +91,6 @@ const YearStats = ({ repos, fetchData }) => {
           repos,
           setData
         );
-        setData(fetchedData);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -98,8 +105,15 @@ const YearStats = ({ repos, fetchData }) => {
     }
   }, [data]);
 
-  return <div>{data && <div>{total}</div>}</div>;
+  return (
+    <div>
+      {
+        data && total && <div>{Object.keys(total).length}</div> 
+      }
+    </div>
+  );
 };
+
 
 const WeeklyCommitStats = ({ data }) => {
   const dates = Object.keys(data);
