@@ -1,6 +1,7 @@
 .projects-main {
     position: absolute;
     max-height: 100vb;
+    overflow: hidden;
 }
 
 .git-grid {

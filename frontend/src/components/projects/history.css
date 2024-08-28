@@ -9,6 +9,7 @@
     transition: 350ms;
     padding: 1vh;
     animation: fadeIn 1250ms ease-in-out;
+    overflow: hidden;
 }
 
 .histmain:hover {
@@ -107,6 +108,7 @@
     border-radius: 50%;
     position: relative;
     transition: 350ms;
+    font-size: 1.5vh;
 }
 
 .total-commits p {

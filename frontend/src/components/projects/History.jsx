@@ -62,6 +62,12 @@ const YearStats = () => {
   )
 }
 
+const WeeklyCommitStats = ({ data }) => {
+  return (
+    <div>HEIADJLKSAJKLDJASKL</div>
+  )
+}
+
 const WeekStats = ({ repos, fetchData }) => {
   const [data, setData] = useState(null);
   const [total, setTotal] = useState(null);
@@ -75,18 +81,29 @@ const WeekStats = ({ repos, fetchData }) => {
 
   const calcTotal = (data) => {
     if (data) {
-      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+      let today = new Date()
+      let lastMonday = new Date()
+      lastMonday.setDate(today.getDate() - today.getDay())
+
+      let days = [];
+      for (let i = 0; i < 7; i++) {
+        let day = new Date(lastMonday);
+        day.setDate(lastMonday.getDate() + i);
+        days.push(day.toISOString().substring(0, 10));
+      }
+
       let ret = {};
       for (let day of days) {
-        ret[day] = [];
+        ret[day] = ret[day] ? ret[day] : []
+        let t = 0
         for (let repo of repos) {
-          let t = [];
-          t.push(repo.name);
           for (let i = 0; i < Object.keys(data[repo.name]).length; i++) {
-            t.push(data[repo.name][i].commit.message)
+            if (data[repo.name][i].commit.author.date.substring(0, 10) == day ) {
+              t += 1``
+            }
           }
-          ret.push(t)
         }
+        ret[day].push(t)
       }
       return ret;
     }
@@ -101,7 +118,7 @@ const WeekStats = ({ repos, fetchData }) => {
 
   return (
     <div>
-      {total && <div>{total}</div>}
+      {total && <WeeklyCommitStats data={data} />}
     </div>
   );
 };
