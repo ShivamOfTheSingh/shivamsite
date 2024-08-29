@@ -22,15 +22,6 @@ const EmailPrompt = () => {
           msg: message,
         }
       )
-
-      if (response.status === 200) {
-        console.log('Email sent successfully');
-        setSubject('');
-        setReturnEmail('');
-        setMessage('');
-      } else {
-        console.log('Failed to send email');
-      }
     } catch (error) {
       console.error('Error:', error);
     }
