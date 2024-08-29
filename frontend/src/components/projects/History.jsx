@@ -21,7 +21,6 @@ const OATStats = ({ repos, fetchData }) => {
         });
       }
       } catch (error) {
-        console.error(`Data for repo ${repo.name} is missing or malformed.`);
         return calcTotal(data)
       }
     });
@@ -72,28 +71,35 @@ const OATStats = ({ repos, fetchData }) => {
 const YearStats = ({ repos, fetchData }) => {
   const [data, setData] = useState(null);
   const [total, setTotal] = useState(null);
-  const [lol, setLol] = useState(0)
-  const [max_index, setMax] = useState(null)
+  const [lol, setLol] = useState(0);
+  const [max_index, setMax] = useState(null);
 
   const calcTotal = (data) => {
-    let ret = new Array(52).fill(0)
+    let ret = new Array(52).fill(0);
     for (let repo of repos) {
       for (let i = 0; i < 52; i++) {
-        ret[i] += data[repo.name].owner[i]
+        ret[i] += data[repo.name].owner[i];
       }
     }
 
-    let pp = 0
-    let m = 0
+    let pp = 0;
+    let m = 0;
     for(let i = 0; i < 52; i++) {
-      pp += ret[i]
+      pp += ret[i];
       if (ret[i] > ret[m]) {
-        m = i
+        m = i;
       }
     }
-    setMax(m)
-    setLol(pp)
-    return ret
+    setMax(m);
+    setLol(pp);
+    return ret;
+  };
+
+  const getWeekDate = (weekIndex) => {
+    const currentDate = new Date();
+    const startOfYear = new Date(currentDate.getFullYear() - 1, currentDate.getMonth(), currentDate.getDate());
+    const startOfWeek = new Date(startOfYear.getTime() + weekIndex * 7 * 24 * 60 * 60 * 1000);
+    return startOfWeek.toLocaleDateString();
   };
 
   useEffect(() => {
@@ -126,9 +132,19 @@ const YearStats = ({ repos, fetchData }) => {
             {total.map((weeksum, index) => (
               <div className='single_week' key={index}>
                 {index === max_index ? (
-                  <div className='rainbow'>{weeksum}</div>
+                  <div
+                    className='rainbow'
+                    title={`Most commits on the week starting on ${getWeekDate(index)}`}
+                  >
+                    {weeksum}
+                  </div>
                 ) : (
-                  <div className='normie'>{weeksum}</div>
+                  <div
+                    className='normie'
+                    title={`Commits for the week starting on ${getWeekDate(index)}`}
+                  >
+                    {weeksum}
+                  </div>
                 )}
               </div>
             ))}
@@ -141,10 +157,7 @@ const YearStats = ({ repos, fetchData }) => {
       )}
     </>
   );
-  
 };
-
-
 
 const WeeklyCommitStats = ({ data }) => {
   const dates = Object.keys(data);
