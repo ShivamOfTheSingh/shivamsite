@@ -225,3 +225,99 @@
     color: var(--dim-text-color);
     font-size: 2.05vh;
 }
+
+.year-main {
+    display: flex;
+    width: 73vh;
+    animation: fadeIn 1s;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.year {
+    height: 16.833vh;
+    width: 60vh;
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1.2083vh;
+}
+  
+.single_week {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.normie:hover{
+    border-radius: 50%;
+    color: var(--main-text-color);
+    background-color: var(--main-bg-color);
+    border: solid 1px var(--main-text-color);
+}
+
+.rainbow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dim-text-color);
+    color: var(--main-bg-color);
+    border: solid 1px var(--dim-text-color);
+    height: 100%;
+    width: 100%;
+    transition: 350ms;
+}
+
+.rainbow:hover {
+    border-radius: 50%;
+    border-color: var(--dim-bg-color);
+    animation: rainbow-animation 1s linear infinite;
+}
+
+@keyframes rainbow-animation {
+    0% { background-color: #FFB3B3; }
+    8.33% { background-color: #FFB3B3; }
+    25% { background-color: #FFCC99; }
+    41.67% { background-color: #FFFFB3; }
+    58.33% { background-color: #B3FFB3; }
+    75% { background-color: #B3CCFF; }
+    91.67% { background-color: #D1B3FF; }
+    100% { background-color: #FFB3B3; }
+}
+
+
+.normie {
+    border: solid 1px var(--main-text-color);
+    background-color: var(--main-text-color);
+    color: var(--main-bg-color);
+    transition: 350ms;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.caption {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 12vh;
+    height: 100%;
+}
+
+.caption div {
+    font-size: 5vh;
+    transition: 200ms linear;
+}
+
+.year-main:hover .caption div {
+    color: var(--bright-text-color);
+    font-size: 5.15vh;
+}
+
+.caption p {
+    color: var(--main-text-color);
+    text-align: center;
+}

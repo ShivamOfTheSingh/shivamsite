@@ -72,6 +72,8 @@ const OATStats = ({ repos, fetchData }) => {
 const YearStats = ({ repos, fetchData }) => {
   const [data, setData] = useState(null);
   const [total, setTotal] = useState(null);
+  const [lol, setLol] = useState(0)
+  const [max_index, setMax] = useState(null)
 
   const calcTotal = (data) => {
     let ret = new Array(52).fill(0)
@@ -80,6 +82,17 @@ const YearStats = ({ repos, fetchData }) => {
         ret[i] += data[repo.name].owner[i]
       }
     }
+
+    let pp = 0
+    let m = 0
+    for(let i = 0; i < 52; i++) {
+      pp += ret[i]
+      if (ret[i] > ret[m]) {
+        m = i
+      }
+    }
+    setMax(m)
+    setLol(pp)
     return ret
   };
 
@@ -106,13 +119,31 @@ const YearStats = ({ repos, fetchData }) => {
   }, [data]);
 
   return (
-    <div>
-      {
-        data && total && <div>{Object.keys(total).length}</div> 
-      }
-    </div>
+    <>
+      {total && (
+        <div className='year-main'>
+          <div className='year'>
+            {total.map((weeksum, index) => (
+              <div className='single_week' key={index}>
+                {index === max_index ? (
+                  <div className='rainbow'>{weeksum}</div>
+                ) : (
+                  <div className='normie'>{weeksum}</div>
+                )}
+              </div>
+            ))}
+          </div>
+          <div className='caption'>
+            <div>{lol}</div>
+            <p>Commits this year</p>
+          </div>
+        </div>
+      )}
+    </>
   );
+  
 };
+
 
 
 const WeeklyCommitStats = ({ data }) => {
@@ -172,9 +203,7 @@ const WeekStats = ({ repos, fetchData }) => {
     if (data) {
       let today = new Date();
       let lastMonday = new Date(today);
-      console.log(today.getDay());
       lastMonday.setDate(today.getDate() - ((today.getDay() + 6) % 7));
-      console.log(lastMonday.getDate());
       
       let days = [];
       for (let i = 0; i < 7; i++) {
