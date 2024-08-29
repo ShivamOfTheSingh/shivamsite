@@ -171,16 +171,21 @@ const WeekStats = ({ repos, fetchData }) => {
   const calcTotal = (data) => {
     if (data) {
       let today = new Date();
-      let lastMonday = new Date();
+      let lastMonday = new Date(today);
+      console.log(today.getDay());
       lastMonday.setDate(today.getDate() - ((today.getDay() + 6) % 7));
-
+      console.log(lastMonday.getDate());
+      
       let days = [];
       for (let i = 0; i < 7; i++) {
-        let day = new Date(lastMonday);
-        day.setDate(lastMonday.getDate() + i);
-        days.push(day.toISOString().substring(0, 10));
+          let day = new Date(lastMonday);
+          day.setDate(lastMonday.getDate() + i);
+          const formattedDate = day.getFullYear() + '-' + 
+                                String(day.getMonth() + 1).padStart(2, '0') + '-' + 
+                                String(day.getDate()).padStart(2, '0');
+          days.push(formattedDate);
       }
-
+      
       let ret = {};
       for (let day of days) {
         ret[day] = ret[day] ? ret[day] : [];
