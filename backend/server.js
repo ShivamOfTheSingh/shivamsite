@@ -8,6 +8,9 @@ app.use(express.json())
 const git_router = require("./routes/github");
 app.use("/github", git_router);
 
+const linked_router = require("./routes/linkedin")
+app.use("/linkedin", linked_router)
+
 const emailer = require("./routes/emailer");
 app.use("/emailer", emailer)
 

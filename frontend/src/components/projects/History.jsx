@@ -250,7 +250,6 @@ const WeekStats = ({ repos, fetchData }) => {
 };
 
 const fetchData = async (url, repos, setVar) => {
-  console.log("____________________________________________________________")
   try {
     const data_per_repo = {};
     const promises = repos.map(async (repo) => {
@@ -258,8 +257,6 @@ const fetchData = async (url, repos, setVar) => {
       const res = await axios.get(url, {
         params: { repo: name },
       });
-      console.log(repo.name)
-      console.log(res)
       data_per_repo[name] = res.data;
     });
     await Promise.all(promises);

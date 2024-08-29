@@ -22,6 +22,7 @@ const EmailPrompt = () => {
           msg: message,
         }
       )
+      setMessage('')
     } catch (error) {
       console.error('Error:', error);
     }

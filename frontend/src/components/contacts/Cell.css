@@ -29,6 +29,8 @@
 
 .CellMain:hover .pfp {
     border-color: var(--bright-text-color);
+    height: 11.5vh;
+    width: 11.5vh;
 }
 
 .CellMain .text {
