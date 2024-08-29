@@ -1,5 +1,6 @@
 // EmailPrompt.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
+import axios from "axios"
 import './EmailPrompt.css';
 
 const EmailPrompt = () => {
@@ -14,22 +15,21 @@ const EmailPrompt = () => {
 
   const send_msg = async () => {
     try {
-      const response = await fetch('http://localhost:8889/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          userEmail: returnEmail,
-          userSubject: subject,
-          content: message,
-        }),
-      });
+      const response = await axios.post('http://localhost:6969/emailer/',
+        {
+          subject: subject,
+          email: returnEmail,
+          msg: message,
+        }
+      )
 
-      if (response.ok) {
+      if (response.status === 200) {
         console.log('Email sent successfully');
+        setSubject('');
+        setReturnEmail('');
+        setMessage('');
       } else {
-        console.error('Failed to send email');
+        console.log('Failed to send email');
       }
     } catch (error) {
       console.error('Error:', error);
