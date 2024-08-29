@@ -57,16 +57,26 @@ router.get('/user/repo/commits', async (req, res) => {
     }
 });
 
-// Route to fetch contributor statistics (OAT) for a specific repository
-router.get('/user/repo/commits/stats/oat', async (req, res) => {
-    try {
-        const octokit = await initializeOctokit();
-        const { repo } = req.query;
-        const { data } = await octokit.request('GET /repos/{owner}/{repo}/stats/contributors', {
+const fetchOATDataWithRetry = async (octokit, repo, retries = 3, delay = 500) => {
+    for (let i = 0; i < retries; i++) {
+        const { data, status } = await octokit.request('GET /repos/{owner}/{repo}/stats/contributors', {
             owner: 'shivamofthesingh',
             repo: repo,
             headers: { 'X-GitHub-Api-Version': '2022-11-28' }
         });
+        if (status === 200 && data.length > 0) {
+            return data;
+        }
+        await new Promise(resolve => setTimeout(resolve, delay));
+    }
+    return [];
+};
+
+router.get('/user/repo/commits/stats/oat', async (req, res) => {
+    try {
+        const octokit = await initializeOctokit();
+        const { repo } = req.query;
+        const data = await fetchOATDataWithRetry(octokit, repo);
         console.log(`Sending OAT commit data for repo: ${repo}`);
         res.json(data);
     } catch (error) {
