@@ -4,8 +4,8 @@
     justify-content: space-between;
     background-color: var(--main-bg-color);
     border: solid 1px var(--main-text-color);
-    height: 39%;
-    padding: 1.5vh;
+    height: 50%;
+    padding: 1vh;
     transition: 350ms;
     animation: fadeIn 350ms linear;
 }
@@ -17,7 +17,7 @@
 }
 
 .leetmain .leftside img {
-    margin: 0.5vh;
+    margin: 1vh;
     border-radius: 50%;
     height: 12.5vh;
     border: solid 1px var(--main-text-color);
@@ -29,20 +29,11 @@
     transform: scale(1.02);
 }
 
-.leetmain .usernom {
-    transition: 350ms;
-}
-
-.leetmain:hover .usernom {
-    color: var(--dim-text-color);
-}
-
 .leetmain .leftside {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding-top: 1.5vh;
 }
 
 .bottomside {
@@ -55,11 +46,11 @@
 }
 
 .middleside {
-    width: 60%;
+    width: 40%;
     padding: 1.5vh 0.5vw;
 }
 
 .rightside {
-    width: 15%;
+    width: 35%;
     padding: 1.5vh 0.5vw;
 }

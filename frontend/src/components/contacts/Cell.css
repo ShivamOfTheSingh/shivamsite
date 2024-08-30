@@ -6,7 +6,7 @@
     justify-content: space-between;
     background-color: var(--main-bg-color);
     border: solid 1px var(--main-text-color);
-    width: 41%;
+    width: 43%;
     aspect-ratio: 2 / 1;
     transition: 350ms;
 }
