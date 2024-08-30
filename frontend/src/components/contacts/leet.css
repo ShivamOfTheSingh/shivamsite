@@ -1,0 +1,53 @@
+.leetmain {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--main-bg-color);
+    border: solid 1px var(--main-text-color);
+    height: 39%;
+    padding: 1.5vh;
+    transition: 350ms;
+}
+
+.leetmain:hover {
+    background-color: var(--dim-bg-color);
+    color: var(--bright-text-color);
+    border-color: var(--bright-text-color);
+}
+
+.leetmain .leftside img {
+    margin: 0.5vh;
+    border-radius: 50%;
+    height: 12.5vh;
+    border: solid 1px var(--main-text-color);
+    width: 12.5vh;
+    transition: 350ms linear;
+}
+
+.leetmain:hover .leftside img {
+    transform: scale(1.03);
+}
+
+.leetmain .usernom {
+    transition: 350ms;
+}
+
+.leetmain:hover .usernom {
+    color: var(--dim-text-color);
+}
+
+.leetmain .leftside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.5vh;
+}
+
+.bottomside {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 1vh;
+}

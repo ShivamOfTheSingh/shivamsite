@@ -2,7 +2,7 @@
     position: absolute;
     top: 25%;
     left: 45%;
-    height: 55%;
+    height: 55.25%;
     width: 45%;
     animation: fadeIn 0.35s ease-in-out;
     display: flex;
@@ -14,6 +14,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    animation: fadeIn 0.35s ease-in-out;
 }
 
 @keyframes fadeIn {

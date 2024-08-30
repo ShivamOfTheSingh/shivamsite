@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ProfileCell from './ProfileCell';
 import axios from "axios"
 import "./Profiles.css";
+import Leet from './Leet';
 
 const Profiles = () => {
   const [gituserinfo, setGitUserinfo] = useState(null);
@@ -21,7 +22,6 @@ const Profiles = () => {
       try {
         const user = await axios.get('http://localhost:6969/linkedin/user')
         setLinked(user.data)
-        console.log(user.data)
       } catch (error) {
         console.error(error)
       }
@@ -36,10 +36,10 @@ const Profiles = () => {
       { gituserinfo && linkedinuserinfo &&
       <div className='profiles'>
         <ProfileCell url={gituserinfo.html_url} cat={"Github"} imagelink={gituserinfo.avatar_url} username={gituserinfo.login}/>
-        <ProfileCell url={"https://www.linkedin.com/in/shivamofthesingh/"} cat={"Linkedin"} imagelink={linkedinuserinfo.picture} username={gituserinfo.name}/>
+        <ProfileCell url={"https://www.linkedin.com/in/shivamofthesingh/"} cat={"Linkedin"} imagelink={linkedinuserinfo.picture} username={"ShivamOfTheSingh"}/>
       </div>
       }
-      <div className='leet'>LEETCODE</div>
+      <Leet />
     </div>
   );
 }
