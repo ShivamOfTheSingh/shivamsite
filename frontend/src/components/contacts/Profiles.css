@@ -1,13 +1,19 @@
 .ProfileMain {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     position: absolute;
     top: 25%;
     left: 45%;
     height: 55%;
     width: 45%;
     animation: fadeIn 0.35s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profiles {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 @keyframes fadeIn {

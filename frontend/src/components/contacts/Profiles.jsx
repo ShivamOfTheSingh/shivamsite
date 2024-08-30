@@ -33,13 +33,13 @@ const Profiles = () => {
 
   return (
     <div className='ProfileMain'>
-      {gituserinfo && linkedinuserinfo && (
-        <>
-          <ProfileCell imagelink={gituserinfo.avatar_url} username={gituserinfo.login} cat={"GitHub"} url={gituserinfo.html_url}/>
-          <ProfileCell imagelink={linkedinuserinfo.picture} username={linkedinuserinfo.name} cat={"LinkedIn"} url={"https://www.linkedin.com/in/shivamofthesingh/"}/>
-          <ProfileCell />
-        </>
-      )}
+      { gituserinfo && linkedinuserinfo &&
+      <div className='profiles'>
+        <ProfileCell url={gituserinfo.html_url} cat={"Github"} imagelink={gituserinfo.avatar_url} username={gituserinfo.login}/>
+        <ProfileCell url={"https://www.linkedin.com/in/shivamofthesingh/"} cat={"Linkedin"} imagelink={linkedinuserinfo.picture} username={gituserinfo.name}/>
+      </div>
+      }
+      <div className='leet'>LEETCODE</div>
     </div>
   );
 }
