@@ -7,6 +7,7 @@
     height: 39%;
     padding: 1.5vh;
     transition: 350ms;
+    animation: fadeIn 350ms linear;
 }
 
 .leetmain:hover {
@@ -25,7 +26,7 @@
 }
 
 .leetmain:hover .leftside img {
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
 
 .leetmain .usernom {
@@ -50,4 +51,17 @@
     flex-direction: row;
     justify-content: space-between;
     padding-left: 1vh;
+    padding-right: 1vh;
+}
+
+.middleside {
+    background-color: red;
+    width: 60%;
+    padding-top: 1.5vh;
+}
+
+.rightside {
+    background-color: blue;
+    width: 15%;
+    padding-top: 1.5vh;
 }

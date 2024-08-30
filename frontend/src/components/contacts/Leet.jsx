@@ -30,7 +30,10 @@ const Leet = () => {
                         <img src={leetdata.matchedUser.profile.userAvatar} />
                         <div>Rank: {leetdata.matchedUser.profile.ranking}</div>
                     </div>
-                    <div>
+                    <div className="middleside">
+                        lol
+                    </div>
+                    <div className="rightside">
                         rightside
                     </div>
                 </div>

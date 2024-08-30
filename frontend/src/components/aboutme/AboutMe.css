@@ -124,3 +124,36 @@
 .animate-model {
     animation: coverModel 0.75s;
 }
+
+.resume {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.resume a {
+    color: var(--dim-text-color);
+    transition: 350ms;
+}
+
+.resume:hover a {
+    color: var(--bright-text-color)
+}
+
+.resume::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 43.5%;
+    height: 1px;
+    background-color: var(--dim-text-color);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.resume:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
