@@ -28,7 +28,7 @@ const AboutMe = ({ theme }) => {
                       <p onClick={() => changeModel(2.5)}>And I am located California, both in the Bay Area and Southern California.</p>
                       <p onClick={() => changeModel(3)}>And I am passionate about mathematics, machine learning, and cloud computing.</p>
                       <p onClick={() => changeModel(4)}>And I am a cooking enthusiast and an enjoyer of physical activity.</p>
-                      <p onClick={() => changeModel(5)}>And my favorite languages are Python, C++, and GoLang</p>
+                      <p onClick={() => changeModel(5)}>And my favorite languages are Python, C++, and GoLang (in no particular order, of course)</p>
                       <p onClick={() => changeModel(5.5)}>And I am a lover of samosas.</p>
                       <p onClick={() => changeModel(6)}>And I hope you like my website!</p>
                       <p className='resume'><a>Click here for my resume &#8594;</a></p>

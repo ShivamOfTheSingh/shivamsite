@@ -38,7 +38,7 @@ const Valley = () => {
 		p5.background(0, 0);
 		p5.fill(getComputedStyle(document.documentElement).getPropertyValue('--main-bg-color'));
 		p5.stroke(getComputedStyle(document.documentElement).getPropertyValue('--main-text-color'));
-		p5.strokeWeight(0.76);
+		p5.strokeWeight(0.5);
 		p5.translate(-w / 2 - 5, 200, -235);
 		p5.rotateX(1.6);
 
