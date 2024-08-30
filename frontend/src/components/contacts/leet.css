@@ -55,13 +55,11 @@
 }
 
 .middleside {
-    background-color: red;
     width: 60%;
-    padding-top: 1.5vh;
+    padding: 1.5vh 0.5vw;
 }
 
 .rightside {
-    background-color: blue;
     width: 15%;
-    padding-top: 1.5vh;
+    padding: 1.5vh 0.5vw;
 }

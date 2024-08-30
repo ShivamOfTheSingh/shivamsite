@@ -16,10 +16,11 @@
     border-radius: 50%;
     border: solid 1px var(--main-text-color);
     transition: inherit;
+    margin-right: 1.5vh;
 }
 
 .text .a {
-    font-size: 2.15vh;
+    font-size: 1.75vh;
     transition: 350ms;
     position: relative;
     color: inherit;
