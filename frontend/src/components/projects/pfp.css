@@ -12,7 +12,7 @@
     position: absolute;
     top: 5vh;
     left: 7.5vh;
-    animation: fadeIn 500ms ease-in-out;
+    animation: fadeIn 350ms ease-in-out;
 }
 
 .profile-main:hover {

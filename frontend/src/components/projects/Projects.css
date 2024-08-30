@@ -21,7 +21,7 @@
 }
 
 .gitimg {
-    animation: fadeIn 700ms ease-in-out;
+    animation: fadeIn 400ms ease-in-out;
 }
 
 .giticon:hover {

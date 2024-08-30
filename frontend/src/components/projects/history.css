@@ -9,7 +9,7 @@
     top: 65vh;
     transition: 350ms;
     padding: 1vh;
-    animation: fadeIn 1250ms ease-in-out;
+    animation: fadeIn 600ms ease-in-out;
     overflow: hidden;
 }
 
