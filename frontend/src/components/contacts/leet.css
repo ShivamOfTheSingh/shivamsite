@@ -4,7 +4,7 @@
     justify-content: space-between;
     background-color: var(--main-bg-color);
     border: solid 1px var(--main-text-color);
-    height: 50%;
+    height: 32.5vh;
     padding: 1vh;
     transition: 350ms;
     animation: fadeIn 350ms linear;

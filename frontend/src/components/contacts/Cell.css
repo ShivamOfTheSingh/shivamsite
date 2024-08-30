@@ -6,17 +6,16 @@
     justify-content: space-between;
     background-color: var(--main-bg-color);
     border: solid 1px var(--main-text-color);
-    width: 43%;
-    aspect-ratio: 2 / 1;
+    height: 10vh;
+    width: 18.5vw;;
     transition: 350ms;
 }
 
 .pfp {
-    height: 65%;
+    height: 95%;
     border-radius: 50%;
     border: solid 1px var(--main-text-color);
     transition: inherit;
-    margin-right: 1.5vh;
 }
 
 .text .a {
