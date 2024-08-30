@@ -2,7 +2,7 @@
     position: absolute;
     top: 25%;
     left: 45%;
-    height: 55.25%;
+    height: 55.2vh;
     width: 45%;
     animation: fadeIn 0.35s ease-in-out;
     display: flex;

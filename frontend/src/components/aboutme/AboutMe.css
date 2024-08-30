@@ -133,6 +133,7 @@
 
 .resume a {
     color: var(--dim-text-color);
+    display: inline-block;
     transition: 350ms;
 }
 
@@ -145,12 +146,13 @@
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 43.5%;
+    width: 42.5%;
     height: 1px;
     background-color: var(--dim-text-color);
     transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
+    display: inline-block;
 }
 
 .resume:hover::after {

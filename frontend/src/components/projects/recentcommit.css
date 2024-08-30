@@ -15,7 +15,7 @@
     animation: fadeIn 400ms ease-in-out;
 }
 
-.main-commit a {
+.main-commit .a {
     color: var(--main-text-color);
     transition: 350ms;
     text-decoration: none;
@@ -23,7 +23,7 @@
     display: inline-block;
 }
 
-.main-commit:hover a {
+.main-commit:hover .a {
     color: var(--dim-text-color);
     font-size: 1.75vh;
 }
@@ -38,23 +38,21 @@
     border-radius: 1%;
 }
 
-.main-commit a::after {
+.main-commit .a::after {
     content: '';
     position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 82.5%;
-    transform: scaleX(0);
+    width: 0;
     height: 2px;
+    bottom: -2px;
+    left: 0;
     background-color: var(--dim-text-color);
-    transform-origin: bottom center;
-    transition: transform 350ms;
+    visibility: hidden;
+    transition: all 0.3s;
 }
 
-.main-commit:hover a::after {
-    transform: scaleX(1);
-    transform-origin: bottom center;
-    background-color: var(--dim-text-color);
+.main-commit:hover .a::after {
+    visibility: visible;
+    width: 90%;
 }
 
 @keyframes fadeIn {

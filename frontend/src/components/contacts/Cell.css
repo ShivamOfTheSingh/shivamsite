@@ -23,6 +23,7 @@
     font-size: 1.75vh;
     transition: 350ms;
     position: relative;
+    display: inline-block;
     color: inherit;
 }
 

@@ -14,19 +14,59 @@
     background-color: var(--dim-bg-color);
     color: var(--bright-text-color);
     border-color: var(--bright-text-color);
+    border-radius: 1%;
 }
 
 .leetmain .leftside img {
-    margin: 1vh;
+    margin: 2.5vh;
     border-radius: 50%;
-    height: 12.5vh;
+    height: 15vh;
     border: solid 1px var(--main-text-color);
-    width: 12.5vh;
-    transition: 350ms linear;
+    width: 15vh;
+    transition: 250ms;
+}
+
+.leftside .usernom {
+    transition: color 350ms;
+    position: relative;
+    padding-bottom: 0.25vh;
+}
+
+.leftside .usernom::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    background-color: var(--dim-text-color);
+    transition: width 350ms ease-in-out, left 350ms ease-in-out;
+    transform: translateX(-50%);
+}
+
+.leetmain:hover .usernom::after {
+    width: 100%;
+    left: 0;
+    transform: none;
+}
+
+.leetmain:hover .leftside .usernom::after {
+    width: 100%;
+}
+
+.leetmain .leftside .usernom::after {
+    width: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 350ms ease-in-out, left 350ms ease-in-out;
+}
+
+.leetmain:hover .usernom {
+    color: var(--dim-text-color);
 }
 
 .leetmain:hover .leftside img {
-    transform: scale(1.02);
+    transform: scale(1.05);
 }
 
 .leetmain .leftside {
@@ -34,6 +74,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    padding: 1.5vh;
 }
 
 .bottomside {
@@ -41,16 +82,17 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-left: 1vh;
-    padding-right: 1vh;
+    align-items: center;
 }
 
 .middleside {
     width: 40%;
+    background-color: red;
     padding: 1.5vh 0.5vw;
 }
 
 .rightside {
-    width: 35%;
+    width: 25%;
+    background-color: aliceblue;
     padding: 1.5vh 0.5vw;
 }
