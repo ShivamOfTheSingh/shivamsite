@@ -57,7 +57,7 @@ router.get('/user/repo/commits', async (req, res) => {
     }
 });
 
-const fetchOATDataWithRetry = async (octokit, repo, retries = 3, delay = 500) => {
+const fetchOATDataWithRetry = async (octokit, repo, retries = 7, delay = 500) => {
     for (let i = 0; i < retries; i++) {
         const { data, status } = await octokit.request('GET /repos/{owner}/{repo}/stats/contributors', {
             owner: 'shivamofthesingh',
