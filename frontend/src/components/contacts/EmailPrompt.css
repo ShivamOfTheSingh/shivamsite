@@ -16,6 +16,7 @@
 .EmailMain:hover {
     background-color: var(--dim-bg-color);
     border-color: var(--bright-text-color);
+    border-radius: 0.5%;
 }
 
 

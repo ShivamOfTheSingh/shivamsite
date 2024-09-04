@@ -19,6 +19,17 @@ const Leet = () => {
         fetchleet();
     }, []);
 
+    const formatDate = (timestamp) => {
+        const date = new Date(timestamp * 1000);
+        return date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+        });
+    };
+
     return (
         <>
             {leetdata && (
@@ -63,11 +74,9 @@ const Leet = () => {
                             </div>
                         </div>
                         <div className="rightside">
-                            <div className="capt">
-                                Last Problem Attempted: {leetdata.recentSubmissionList[0].title} on{" "}
-                                {leetdata.recentSubmissionList[0].timestamp} in{" "}
-                                {leetdata.recentSubmissionList[0].lang}
-                            </div>
+                            <div>I last attempted: </div>
+                            <div className="leet_title">{leetdata.recentSubmissionList[0].title}</div>
+                            <div>{formatDate(leetdata.recentSubmissionList[0].timestamp)}</div>
                         </div>
                     </div>
                 </a>

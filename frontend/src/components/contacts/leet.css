@@ -61,10 +61,6 @@
     transition: width 350ms ease-in-out, left 350ms ease-in-out;
 }
 
-.leetmain:hover .usernom {
-    color: var(--dim-text-color);
-}
-
 .leetmain:hover .leftside img {
     transform: scale(1.05);
 }
@@ -91,12 +87,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: var(--main-text-color)
+    color: var(--main-text-color);
 }
 
 .rightside {
-    width: 25%;
+    width: 35%;
+    height: 75%;
     padding: 1.5vh 0.5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .barchart {
@@ -120,7 +121,7 @@
 }
 
 .bardata {
-    animation: grow 2s;
+    animation: grow 1s;
     padding: 1vh;
 }
 
@@ -139,4 +140,13 @@
     }
 }
 
+.leet_title {
+    text-align: center;
+    font-size: 2.4vh;
+    transition: var(--transition-time);
+}
 
+.leetmain:hover .leet_title {
+    font-size: 2.5vh;
+    color: var(--dim-text-color);
+}
