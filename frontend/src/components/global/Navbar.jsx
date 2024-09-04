@@ -12,7 +12,7 @@ const NavBar = ({ toggleTheme }) => {
 			<div className="left-side">
 				<Link to='/' className="navbar-element">Home</Link>
 				<Link to='/projects' className="navbar-element">Projects</Link>
-				<Link to='/contacts' className="navbar-element">Contacts</Link>
+				<Link to='/profiles' className="navbar-element">Profiles</Link>
 				<Link to='/me' className="navbar-element">About Me</Link>
 			</div>
 		</nav>

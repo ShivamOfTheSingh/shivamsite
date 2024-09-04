@@ -48,7 +48,7 @@ function App() {
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path='/projects' element={<Projects theme={theme} />} />
-					<Route path='/contacts' element={<Contacts />} />
+					<Route path='/profiles' element={<Contacts />} />
 					<Route path='/me' element={<AboutMe theme={theme} />} />
 				</Routes>
 			</main>
