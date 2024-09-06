@@ -128,6 +128,6 @@ router.get('/user/repo/commits/stats/year', async (req, res) => {
         console.error("Error fetching yearly commit data: ", error);
         res.status(500).json({ error: 'An error occurred while fetching yearly commit data' });
     }
-});
+})
 
 module.exports = router;

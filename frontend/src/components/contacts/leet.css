@@ -61,9 +61,6 @@
     transition: width 350ms ease-in-out, left 350ms ease-in-out;
 }
 
-.leetmain:hover .leftside img {
-    transform: scale(1.05);
-}
 
 .leetmain .leftside {
     display: flex;
@@ -142,11 +139,11 @@
 
 .leet_title {
     text-align: center;
-    font-size: 2.4vh;
+    font-size: 3vh;
     transition: var(--transition-time);
 }
 
 .leetmain:hover .leet_title {
-    font-size: 2.5vh;
+    transform: scale(0.97);
     color: var(--dim-text-color);
 }
