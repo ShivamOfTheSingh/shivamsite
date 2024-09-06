@@ -5,7 +5,7 @@ import GitProfile from "./GitProfile";
 import ArrowGrid from "./ArrowGrid";
 import RecentCommit from "./RecentCommit";
 import History from "./History";
-import Readme from "./Readme";
+import RepoList from "./repos"
 
 const Projects = ({ theme }) => {
   const [userInfo, setUserInfo] = useState(null);
@@ -52,8 +52,8 @@ const Projects = ({ theme }) => {
         ) : (
           <div className="git-grid">
             {userInfo && <GitProfile userInfo={userInfo} formatDate={formatDate} />}
-            {allRepos && <RecentCommit repos={allRepos} formatDate={formatDate} />}
-            {allRepos && <Readme repos={allRepos} formatDate={formatDate} />}
+              {allRepos && <RecentCommit repos={allRepos} formatDate={formatDate} />}
+              <RepoList />
             <div className="gitimg">
               {theme === "dark" ? (
                 <img

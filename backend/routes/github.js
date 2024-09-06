@@ -130,4 +130,19 @@ router.get('/user/repo/commits/stats/year', async (req, res) => {
     }
 })
 
+router.get('/user/recentcommit', async (req, res) => {
+    try {
+        const octokit = await initializeOctokit();
+        const { data } = await octokit.request('GET /users/ShivamOfTheSingh/events', {
+            headers: { 'X-GitHub-Api-Version': '2022-11-28' },
+            per_page: 100,
+        });
+        console.log(`Sending user event data`);
+        console.log(data)
+        res.json(data);
+    } catch (error) {
+        console.error(error)
+    }
+})
+
 module.exports = router;
