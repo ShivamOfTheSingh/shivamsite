@@ -40,6 +40,24 @@ router.get('/user/repo', async (req, res) => {
     }
 });
 
+// Reoute to get repos sorted by most recent
+router.get('/user/repo/recent', async (req, res) => {
+    try {
+        const octokit = await initializeOctokit();
+        const { data } = await octokit.request('GET /users/{username}/repos', {
+            username: 'shivamofthesingh',
+            headers: { 'X-GitHub-Api-Version': '2022-11-28' },
+            sort: "updated",
+            per_page: 4
+        });
+        console.log("Sending repo data");
+        res.json(data);
+    } catch (error) {
+        res.status(error.status || 500).json({ message: error.message });
+    }
+});
+
+
 // Route to fetch commits of a specific repository
 router.get('/user/repo/commits', async (req, res) => {
     try {
@@ -127,21 +145,6 @@ router.get('/user/repo/commits/stats/year', async (req, res) => {
     } catch (error) {
         console.error("Error fetching yearly commit data: ", error);
         res.status(500).json({ error: 'An error occurred while fetching yearly commit data' });
-    }
-})
-
-router.get('/user/recentcommit', async (req, res) => {
-    try {
-        const octokit = await initializeOctokit();
-        const { data } = await octokit.request('GET /users/ShivamOfTheSingh/events', {
-            headers: { 'X-GitHub-Api-Version': '2022-11-28' },
-            per_page: 100,
-        });
-        console.log(`Sending user event data`);
-        console.log(data)
-        res.json(data);
-    } catch (error) {
-        console.error(error)
     }
 })
 

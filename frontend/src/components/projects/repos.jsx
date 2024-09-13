@@ -7,7 +7,7 @@ const RepoList = () => {
 
     const fetchRepos = async () => {
         try {
-            const res = await axios.get("http://localhost:6969/github/user/recentcommit");
+            const res = await axios.get("http://localhost:6969/github/user/repo/recent");
             setCommits(res.data);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -19,15 +19,8 @@ const RepoList = () => {
     }, []);
 
     return (
-        <div>
-            <p>lol</p>
-            <div>
-                {commits ? (
-                    <p>{Object.keys(commits).length} commits</p>
-                ) : (
-                    <p>Loading commits...</p>
-                )}
-            </div>
+        <div className='repo-main'>
+            {commits && commits.map(commit => <div className='repo-element'>{ commit.name }</div>)}
         </div>
     );
 };

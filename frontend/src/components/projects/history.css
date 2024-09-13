@@ -210,7 +210,7 @@
 .column {
     width: 100%;
     background-color: var(--main-text-color);
-    animation: column_rise 1s ease-out;
+    animation: column_rise 0.75s ease-out;
     transform: 350ms;
 }
 

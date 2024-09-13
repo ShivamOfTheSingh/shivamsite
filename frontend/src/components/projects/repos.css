@@ -1,0 +1,16 @@
+.repo-main {
+    position: absolute;
+    top: 5vh;
+    left: 50vw;
+    height: 88vh;
+    width: 46vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.repo-element {
+    background-color: var(--main-bg-color);
+    border: solid 1px var(--main-text-color);
+    height: 20%;
+}
