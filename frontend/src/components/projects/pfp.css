@@ -1,7 +1,7 @@
 .profile-main {
     padding: 5vh 0vh;
     height: 45vh;
-    width: 45vh;
+    width: 24vw;
     border: solid 2px var(--main-text-color);
     background-color: var(--main-bg-color);
     display: flex;
@@ -11,7 +11,7 @@
     transition: 350ms;
     position: absolute;
     top: 5vh;
-    left: 7.5vh;
+    left: 2.5vw;
     animation: fadeIn 350ms ease-in-out;
 }
 

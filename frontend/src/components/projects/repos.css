@@ -1,9 +1,9 @@
 .repo-main {
     position: absolute;
     top: 5vh;
-    left: 50vw;
-    height: 88vh;
-    width: 46vw;
+    left: 43.5vw;
+    height: 87.5vh;
+    width: 54vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -12,9 +12,9 @@
 .repo-element,
 .dummy {
     background-color: var(--main-bg-color);
-    border: solid 1px var(--main-text-color);
-    height: 17.5%;
-    padding: 1vh;
+    border: solid 2px var(--main-text-color);
+    height: 15vh;
+    padding: 1.5vh;
     transition: 350ms;
     opacity: 0;
 }

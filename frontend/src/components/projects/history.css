@@ -3,9 +3,9 @@
     background-color: var(--main-bg-color);
     border: solid 2px var(--main-text-color);
     height: 25.5vh;
-    width: 73vh;
+    width: calc(21vh + 27.5vw);
     position: absolute;
-    left: 7.5vh;
+    left: 2.5vw;
     top: 65vh;
     transition: 350ms;
     padding: 1vh;
