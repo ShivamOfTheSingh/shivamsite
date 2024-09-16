@@ -3,7 +3,7 @@
     top: 5vh;
     left: calc(21vh + 33.5vw);
     height: 87.5vh;
-    width: 54vw;
+    width: calc(100vw - (21vh + 36vw));
     display: flex;
     flex-direction: column;
     justify-content: space-between;
