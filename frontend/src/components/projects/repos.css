@@ -1,7 +1,7 @@
 .repo-main {
     position: absolute;
     top: 5vh;
-    left: 43.5vw;
+    left: calc(21vh + 33.5vw);
     height: 87.5vh;
     width: 54vw;
     display: flex;
