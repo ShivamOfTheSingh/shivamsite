@@ -13,8 +13,7 @@ Containing my GitHub profile information & my repos with dynamic configurations.
 > Work in Progress!
 
 ## Contacts Page
-A soothing background of particles moving in a smooth flow using p5.js. Displays my professional profiles (github, linkedin, ...) to contact. Furthermore, using nodemailer, I created an email applet to send emails to me. Also shows my leetcode profile to display my progress.
-> Work in Progress!
+A soothing background of particles moving in a smooth flow using p5.js. Displays my professional profiles (github, linkedin, ...) to contact. Furthermore, using nodemailer, I created an email applet to send emails to me. Also shows my leetcode profile to display my algorithms progress!
 
 ## About Me Page
 A pop of color to my website, the About Me page gives fun facts about myself and displays interactive 3D models using three.js and react-three-fiber. Check here for my resume!

@@ -241,7 +241,8 @@
 /* Year Section */
 .year-main {
     display: flex;
-    width: 73vh;
+    width: 100%;
+    padding: 0 1vw;
     animation: fadeIn 1s;
     justify-content: space-between;
     align-items: center;

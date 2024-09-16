@@ -44,7 +44,7 @@ const RepoList = () => {
             <a className='dummy'
                 style={{
                     animation: "fadeIn 1s forwards",
-                    animationDelay: `${commits ? (commits.length * 250) : 0}ms`,
+                    animationDelay: `1000ms`,
                 }}>
                 <div>I have many more repos, check it out here &#8594;</div>
             </a>
