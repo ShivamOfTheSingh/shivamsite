@@ -9,8 +9,36 @@
     justify-content: space-between;
 }
 
-.repo-element {
+.repo-element,
+.dummy {
     background-color: var(--main-bg-color);
     border: solid 1px var(--main-text-color);
-    height: 20%;
+    height: 17.5%;
+    padding: 1vh;
+    transition: 350ms;
+    opacity: 0;
+}
+
+.repo-element h3,
+.dummy h3 {
+    margin: 0.25vh 0;
+    transition: 350ms;
+}
+
+.repo-element:hover,
+.dummy:hover {
+    background-color: var(--dim-bg-color);
+    color: var(--bright-text-color);
+    border-color: var(--bright-text-color);
+    border-radius: 1%;
+}
+
+.dummy {
+    display: flex;
+    align-items: center;
+}
+
+.dummy div {
+    font-size: 2.25vh;
+    margin-left: 5%;
 }

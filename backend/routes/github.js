@@ -48,7 +48,7 @@ router.get('/user/repo/recent', async (req, res) => {
             username: 'shivamofthesingh',
             headers: { 'X-GitHub-Api-Version': '2022-11-28' },
             sort: "updated",
-            per_page: 4
+            per_page: 3
         });
         console.log("Sending repo data");
         res.json(data);

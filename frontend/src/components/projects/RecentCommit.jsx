@@ -29,30 +29,37 @@ const RecentCommit = ({ repos, formatDate }) => {
     const mostRecentCommits = () => {
         let max_index = 0;
         let l = Object.keys(repos).length;
-        let max_date = new Date(commits[repos[max_index].name].commit.committer.date)
+        let max_date = new Date(commits[repos[max_index].name].commit.committer.date);
 
         for (let i = 0; i < l; i++) {
-            let curr_date = new Date(commits[repos[i].name].commit.committer.date)
+            let curr_date = new Date(commits[repos[i].name].commit.committer.date);
             if (curr_date > max_date) {
-                max_date = curr_date
-                max_index = i
+                max_date = curr_date;
+                max_index = i;
             }
         }
+
+        const formatLocalTime = (dateString) => {
+            const date = new Date(dateString);
+            const options = { month: 'long', day: 'numeric' };
+            const formattedDate = date.toLocaleDateString(undefined, options);
+            const formattedTime = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            return `${formattedDate} at ${formattedTime}`;
+        };
 
         return (
             <a href={repos[max_index].html_url} target="_blank" rel="noopener noreferrer" title={repos[max_index].name + " ~ My Most Recent Repository"}>
                 <div className='main-commit'>
                     <div className='a'>My latest commit ~</div>
                     <h2>
-                        {commits[repos[max_index].name].commit.message.length > 40 
-                            ? `"${commits[repos[max_index].name].commit.message.substring(0, 45)}..."` 
+                        {commits[repos[max_index].name].commit.message.length > 40
+                            ? `"${commits[repos[max_index].name].commit.message.substring(0, 45)}..."`
                             : `"${commits[repos[max_index].name].commit.message}"`}
                     </h2>
-                    <p>{formatDate(commits[repos[max_index].name].commit.committer.date)}</p>
+                    <p>{formatLocalTime(commits[repos[max_index].name].commit.committer.date)}</p>
                 </div>
             </a>
-
-        )
+        );
     };
 
     return (
