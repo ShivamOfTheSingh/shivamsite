@@ -22,7 +22,7 @@
 
 /* Header Section */
 .hist_head {
-    font-size: 2vh;
+    font-size: 1.75vh;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -51,7 +51,7 @@
     color: var(--main-text-color);
     border: 1px solid var(--main-text-color);
     font-family: 'Courier New', Courier, monospace;
-    font-size: 2vh;
+    font-size: 1.75vh;
     font-weight: thin;
     padding: 0.25vh 1.5vh;
     transition: 350ms;
