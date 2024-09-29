@@ -22,7 +22,7 @@
 
 /* Header Section */
 .hist_head {
-    font-size: 2vh;
+    font-size: 1.75vh;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -31,6 +31,13 @@
 
 .hist_head p {
     margin: 0;
+}
+
+.hist_head .rightside {
+    padding: 0;
+    margin: 0;
+    flex-direction: row;
+    width: 60%;
 }
 
 /* Button Styles */
@@ -43,7 +50,7 @@
     color: var(--main-text-color);
     border: 1px solid var(--main-text-color);
     font-family: 'Courier New', Courier, monospace;
-    font-size: 2vh;
+    font-size: 1.75vh;
     font-weight: thin;
     padding: 0.25vh 1.5vh;
     transition: 350ms;
@@ -317,18 +324,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 12vh;
+    width: 11.5vh;
     height: 100%;
+    padding-left: 0.5vh;
 }
 
 .caption div {
-    font-size: 5vh;
+    font-size: 4vh;
     transition: 200ms linear;
 }
 
 .year-main:hover .caption div {
     color: var(--bright-text-color);
-    font-size: 5.15vh;
+    font-size: 4.15vh;
 }
 
 .caption p {

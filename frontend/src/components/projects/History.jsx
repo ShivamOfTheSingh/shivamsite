@@ -286,7 +286,7 @@ const History = ({ repo }) => {
     <div className='histmain'>
       <div className='hist_head'>
         <p>My Github Activity For The </p>
-        <div>
+        <div className='rightside'>
           <button
             className={selected === 'week' ? 'selected' : ''}
             onClick={() => setSelected('week')}
