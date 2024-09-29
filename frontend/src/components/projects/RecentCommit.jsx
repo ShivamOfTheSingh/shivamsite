@@ -52,8 +52,8 @@ const RecentCommit = ({ repos, formatDate }) => {
                 <div className='main-commit'>
                     <div className='a'>My latest commit ~</div>
                     <h2>
-                        {commits[repos[max_index].name].commit.message.length > 37
-                            ? `"${commits[repos[max_index].name].commit.message.substring(0, 37)}..."`
+                        {commits[repos[max_index].name].commit.message.length > 30
+                            ? `"${commits[repos[max_index].name].commit.message.substring(0, 30)}..."`
                             : `"${commits[repos[max_index].name].commit.message}"`}
                     </h2>
                     <p>{formatLocalTime(commits[repos[max_index].name].commit.committer.date)}</p>
