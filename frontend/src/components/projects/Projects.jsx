@@ -14,7 +14,7 @@ const Projects = ({ theme }) => {
   useEffect(() => {
     const fetchGitData = async (data, setVar) => {
       try {
-        const url = `http://localhost:6969/github/${data}`;
+        const url = `http://ec2-3-84-6-238.compute-1.amazonaws.com:6969/github/${data}`;
         const res = await axios.get(url);
         setVar(res.data);
       } catch (error) {

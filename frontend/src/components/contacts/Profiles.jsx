@@ -11,7 +11,7 @@ const Profiles = () => {
   useEffect(() => {
     const fetchGitData = async () => {
       try {
-        const user = await axios.get('http://localhost:6969/github/user')
+        const user = await axios.get('http://ec2-3-84-6-238.compute-1.amazonaws.com:6969/github/user')
         setGitUserinfo(user.data)
       } catch (error) {
         console.error(error)
@@ -20,7 +20,7 @@ const Profiles = () => {
 
     const fetLinkedIn = async () => {
       try {
-        const user = await axios.get('http://localhost:6969/linkedin/user')
+        const user = await axios.get('http://ec2-3-84-6-238.compute-1.amazonaws.com:6969/linkedin/user')
         setLinked(user.data)
       } catch (error) {
         console.error(error)

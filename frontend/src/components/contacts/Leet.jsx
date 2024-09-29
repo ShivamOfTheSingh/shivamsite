@@ -8,7 +8,7 @@ const Leet = () => {
     useEffect(() => {
         const fetchleet = async () => {
             try {
-                const response = await axios.get("http://localhost:6969/leet/user");
+                const response = await axios.get("http://ec2-3-84-6-238.compute-1.amazonaws.com:6969/leet/user");
                 setLeet(response.data);
                 console.log(response);
             } catch (error) {

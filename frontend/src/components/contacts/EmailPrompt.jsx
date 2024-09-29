@@ -15,7 +15,7 @@ const EmailPrompt = () => {
 
   const send_msg = async () => {
     try {
-      const response = await axios.post('http://localhost:6969/emailer/',
+      const response = await axios.post('http://ec2-3-84-6-238.compute-1.amazonaws.com:6969/emailer/',
         {
           subject: subject,
           email: returnEmail,

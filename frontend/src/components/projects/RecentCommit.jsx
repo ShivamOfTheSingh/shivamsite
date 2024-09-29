@@ -10,7 +10,7 @@ const RecentCommit = ({ repos, formatDate }) => {
             const commitsData = {};
             const promises = repos.map(async (repo) => {
                 const name = repo.name;
-                const res = await axios.get("http://localhost:6969/github/user/repo/commits", {
+                const res = await axios.get("http://ec2-3-84-6-238.compute-1.amazonaws.com:6969/github/user/repo/commits", {
                     params: { repo: name }
                 });
                 commitsData[name] = res.data[0];
