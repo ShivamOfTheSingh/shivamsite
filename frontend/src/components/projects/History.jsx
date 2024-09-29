@@ -24,7 +24,7 @@ const OATStats = ({ repos, fetchData }) => {
     const fetchAndCalculate = async () => {
       try {
         const fetchedData = await fetchData(
-          'http://ec2-3-84-6-238.compute-1.amazonaws.com:6969/github/user/repo/commits/stats/oat',
+          'https://api.singhshivam.com/github/user/repo/commits/stats/oat',
           repos,
           setData
         );
@@ -98,7 +98,7 @@ const YearStats = ({ repos, fetchData }) => {
     const fetchAndCalculate = async () => {
       try {
         const fetchedData = await fetchData(
-          'http://ec2-3-84-6-238.compute-1.amazonaws.com:6969/github/user/repo/commits/stats/year',
+          'https://api.singhshivam.com/github/user/repo/commits/stats/year',
           repos,
           setData
         );
@@ -196,7 +196,7 @@ const WeekStats = ({ repos, fetchData }) => {
   useEffect(() => {
     const fetchAndCalculate = async () => {
       await fetchData(
-        'http://ec2-3-84-6-238.compute-1.amazonaws.com:6969/github/user/repo/commits/stats/week',
+        'https://api.singhshivam.com/github/user/repo/commits/stats/week',
         repos,
         setData
       );

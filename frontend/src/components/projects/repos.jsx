@@ -7,7 +7,7 @@ const RepoList = () => {
 
     const fetchRepos = async () => {
         try {
-            const res = await axios.get("http://ec2-3-84-6-238.compute-1.amazonaws.com:6969/github/user/repo/recent");
+            const res = await axios.get("https://api.singhshivam.com/github/user/repo/recent");
             setCommits(res.data);
         } catch (error) {
             console.error('Error fetching data:', error);

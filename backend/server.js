@@ -5,7 +5,6 @@ const cors = require("cors");
 
 const app = express();
 
-// Load SSL certificate files for api.singhshivam.com
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.singhshivam.com/privkey.pem', 'utf8');
 const certificate = fs.readFileSync('/etc/letsencrypt/live/api.singhshivam.com/cert.pem', 'utf8');
 const ca = fs.readFileSync('/etc/letsencrypt/live/api.singhshivam.com/chain.pem', 'utf8');
