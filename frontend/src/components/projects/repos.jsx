@@ -37,11 +37,13 @@ const RepoList = () => {
                         animation: "fadeIn 1s forwards",
                         animationDelay: `${index * 250}ms`,
                     }}>
-                    <h3>{commit.name}</h3>
-                    <div>{`Last Updated On: ${formatDate(commit.updated_at)}`}</div>
+                    <div className='header'>
+                        <h3>{commit.name}</h3>
+                        <div>{`Last Updated On: ${formatDate(commit.updated_at)}`}</div>
+                    </div>
                 </a>
             )}
-            <a className='dummy'
+            <a className='dummy' href='https://github.com/ShivamOfTheSingh?tab=repositories' target="_blank" rel="noopener noreferrer"
                 style={{
                     animation: "fadeIn 1s forwards",
                     animationDelay: `1000ms`,

@@ -2,7 +2,7 @@
     position: absolute;
     top: 5vh;
     left: calc(21vh + 33.5vw);
-    height: 87.5vh;
+    height: 88vh;
     width: calc(100vw - (21vh + 36vw));
     display: flex;
     flex-direction: column;
@@ -21,7 +21,7 @@
 
 .repo-element h3,
 .dummy h3 {
-    margin: 0.25vh 0;
+    margin: 0;
     transition: 350ms;
 }
 
@@ -31,6 +31,12 @@
     color: var(--bright-text-color);
     border-color: var(--bright-text-color);
     border-radius: 1%;
+}
+
+.repo-element .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .dummy {
