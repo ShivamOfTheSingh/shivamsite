@@ -33,6 +33,14 @@
     border-radius: 1%;
 }
 
+.scroll-readme {
+    margin-top: 0.5vh;
+    overflow-y: auto;
+    max-height: 87.5%;
+    scrollbar-width: 1px;
+    scrollbar-color: var(--main-text-color);
+}
+
 .repo-element .header {
     display: flex;
     align-items: center;

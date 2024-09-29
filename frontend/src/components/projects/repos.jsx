@@ -41,6 +41,15 @@ const RepoList = () => {
                         <h3>{commit.name}</h3>
                         <div>{`Last Updated On: ${formatDate(commit.updated_at)}`}</div>
                     </div>
+                    <div className='scroll-readme'>
+                    {(() => {
+                        const elements = [];
+                        for (let i = 1; i <= 100; i++) {
+                        elements.push(<div key={i}>Item {i}</div>);
+                        }
+                        return elements;
+                    })()}
+                    </div>
                 </a>
             )}
             <a className='dummy' href='https://github.com/ShivamOfTheSingh?tab=repositories' target="_blank" rel="noopener noreferrer"
