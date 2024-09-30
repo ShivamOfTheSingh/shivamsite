@@ -1,6 +1,26 @@
 {
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "shivamsite backend",
+  "main": "server.js",
+  "scripts": {
+    "test": "ur cooked",
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
+    "@octokit/rest": "^21.0.1",
+    "axios": "^1.7.5",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
     "fs": "^0.0.1-security",
-    "https": "^1.0.0"
+    "https": "^1.0.0",
+    "leetcode-query": "^1.2.3",
+    "nodemailer": "^6.9.14",
+    "nodemon": "^3.1.4"
   }
 }
