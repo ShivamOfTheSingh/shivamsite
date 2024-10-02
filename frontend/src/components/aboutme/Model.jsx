@@ -1,5 +1,6 @@
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
+import { Suspense } from 'react';
 import './Model.css';
 
 import { Dumbell } from './Models/Dumbell';
@@ -48,11 +49,13 @@ const Model = ({ modelName, theme }) => {
   return (
     <div className='ModelMain'>
       <div className='canvas-container'>
-        <Canvas className='canvas' size={[1200, 1200]}>
-          <OrbitControls enableZoom={false} />
-          <ambientLight intensity={1} />
-          {currModel}
-        </Canvas>
+        <Suspense fallback={<div className='LoadingSpinner'>Loading Model...</div>}>
+          <Canvas className='canvas' size={[1200, 1200]}>
+            <OrbitControls enableZoom={false} />
+            <ambientLight intensity={1} />
+            {currModel}
+          </Canvas>
+        </Suspense>
       </div>
     </div>
   );
